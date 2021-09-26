@@ -1,0 +1,95 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+}
+p{
+    margin: 0;
+}
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+}
+.input_wrapper{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    margin: 0;
+}
+
+.inputName{
+    height: 35px;
+    font-size: 30px;
+    border: none;
+    outline: none;
+}
+.button{
+    margin-left: 15px;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+    background-color: #92ffec;
+}
+
+
+
+.description{
+    width: 100%;
+    height: 80%;
+}
+.pokemon{
+    display: flex;
+    justify-content: space-around;
+}
+.name{
+    font-size: 3em;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+.info{
+    font-weight: bold;
+}
+.sprite{
+    width: 150px;
+    height: 150px;
+}
+.img{
+    width: 500px;
+    height: 500px;
+    margin-top: 130px;
+}
+
+.typeImg{
+    width: 55px;
+    height: 65px;
+}
+
+
+
+
+
+
+.statItem{
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat{
+    width: 700px;
+    height: fit-content;
+    background-color: wheat
+}
+.hp{
+    width: 255px;
+    height: 30px;
+    background-color: aliceblue;
+}
+.hpx{
+    width: 0px;
+    height: 100%;
+    background-color: darkblue;
+}
