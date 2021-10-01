@@ -1,22 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap');
+
 body{
     margin: 0;
     padding: 0;
     font-size: 25px;
+    --color1: #F5E7AB;
+    --color2: #0388A6;
+    --color3: #F58766;
+    --color4: #BDE3F5;
+    --color5: #013440;
 }
 p{
     margin: 0;
+    text-transform: capitalize;
+    font-family: 'Old Standard TT', serif;
 }
+
+
+/*                                                    wrapper                                                         */
+
+
 .wrapper{
     width: 100vw;
     height: 100vh;
 }
 .input_wrapper{
     width: 100%;
-    height: 20%;
+    height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aquamarine;
+    background-color: var(--color2);
     margin: 0;
 }
 
@@ -31,65 +47,170 @@ p{
     height: 35px;
     border: none;
     cursor: pointer;
-    background-color: #92ffec;
+    background-color: var(--color4);
 }
 
+
+
+/*                                                    Description                                                     */
 
 
 .description{
     width: 100%;
-    height: 80%;
+    height: 90%;
+    background-color: var(--color1);
+
 }
 .pokemon{
-    display: flex;
-    justify-content: space-around;
-}
-.name{
-    font-size: 3em;
-    text-transform: uppercase;
-    text-align: center;
-
-}
-.info{
-    font-weight: bold;
-}
-.sprite{
-    width: 150px;
-    height: 150px;
-}
-.img{
-    width: 500px;
-    height: 500px;
-    margin-top: 130px;
-}
-
-.typeImg{
-    width: 55px;
-    height: 65px;
-}
-
-
-
-
-
-
-.statItem{
     display: flex;
     justify-content: space-between;
 }
 
+
+/*                                                    Img Block                                                       */
+
+
+.img_block{
+    width: 50%;
+    height: 90vh;
+    clip-path: polygon(100% 0, 100% 46%, 77% 100%, 0 100%, 41% 0);
+    background-color: #ffffff;
+    display: flex;
+    justify-content: right;
+}
+.img{
+    width: 60%;
+    height: auto;
+    object-fit: contain;
+    margin: -10% 10% 0 0;
+}
+.H_W{
+    position: absolute;
+    top: 11%;
+    right: 10%;
+    z-index: 1;
+    font-family: 'Stick No Bills', sans-serif;
+    font-size: 30px;
+}
+
+
+/*                                                    Info Block                                                      */
+
+
+.info_block{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.name{
+    font-size: calc(50px + 25 * (100vw / 1920));
+    text-transform: uppercase;
+    text-align: center;
+    margin: 5%;
+
+}
+
+
 .stat{
     width: 700px;
     height: fit-content;
-    background-color: wheat
+    background-color: var(--color1);
+    filter: brightness(0.9);
+    padding: 5%;
 }
-.hp{
+.statItem{
+    display: flex;
+    justify-content: space-between;
+}
+.stat_text{
+    font-family: 'Gemunu Libre', sans-serif;
+    text-transform: uppercase;
+}
+.state_name{
+    font-size: 20px;
+}
+.state_value{
+    font-size: 30px;
+}
+.scale{
     width: 255px;
     height: 30px;
-    background-color: aliceblue;
+    background-color: #ffffff;
 }
-.hpx{
-    width: 0px;
+.scale_line{
+    width: 0;
     height: 100%;
-    background-color: darkblue;
+    background-color: var(--color5);
+    animation: stat 1s ease-in-out;
 }
+
+@keyframes stat {
+    0%{width: 250px}
+    50%{width: 0}
+    100%{ width: 50px}
+}
+
+
+.abilities{
+    font-size: 20px;
+    margin: 30px 0 0 0;
+    font-family: 'Gemunu Libre', sans-serif;
+    text-transform: uppercase;
+
+}
+.abilities_text{
+    font-size: 30px;
+    font-family: 'Gemunu Libre', sans-serif;
+    margin: 0 30px;
+    text-transform: capitalize;
+}
+
+
+.id{
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Gemunu Libre', sans-serif;
+    position: absolute;
+    right: 25px;
+    bottom: 20%;
+    z-index: 1;
+}
+
+
+/*                                                    sprites                                                         */
+
+
+.sprites{
+    position: absolute;
+    background-color: var(--color3);
+    width: 100%;
+    bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.sprite{
+    width: 8%;
+    height: 150px;
+    margin-left: 30px;
+}
+
+
+.types{
+    align-self: center;
+    margin-right: 30px;
+}
+.typeImg{
+    width: 85px;
+    height: 100px;
+}
+
+
+
+
+
+
+
+
