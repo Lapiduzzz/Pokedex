@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
 
 body{
     margin: 0;
@@ -14,7 +15,6 @@ body{
 }
 p{
     margin: 0;
-    text-transform: capitalize;
     font-family: 'Old Standard TT', serif;
 }
 
@@ -25,6 +25,7 @@ p{
 .wrapper{
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 .input_wrapper{
     width: 100%;
@@ -34,6 +35,7 @@ p{
     align-items: center;
     background-color: var(--color2);
     margin: 0;
+    transition: 0.5s ease-in-out;
 }
 
 .inputName{
@@ -77,13 +79,18 @@ p{
     background-color: #ffffff;
     display: flex;
     justify-content: right;
+    z-index: 5;
 }
 .img{
     width: 60%;
     height: auto;
     object-fit: contain;
     margin: -10% 10% 0 0;
+    animation: image 0.3s ease-in-out;
+
 }
+
+
 .H_W{
     position: absolute;
     top: 11%;
@@ -91,6 +98,18 @@ p{
     z-index: 1;
     font-family: 'Stick No Bills', sans-serif;
     font-size: 30px;
+}
+
+
+.genus{
+    font-size: 20px;
+    margin: 0 2%;
+    line-height: 20px;
+    position: absolute;
+    bottom: 20%;
+    left: 55%;
+    z-index: 1000;
+    font-family: 'Stick No Bills', sans-serif;
 }
 
 
@@ -110,7 +129,19 @@ p{
     text-transform: uppercase;
     text-align: center;
     margin: 5%;
-
+}
+.name_jp{
+    width: 50px;
+    position: absolute;
+    font-size: 5em;
+    vertical-align: center;
+    z-index: 1;
+    right: 45%;
+    line-height: 1em;
+    opacity: 0.2;
+    font-family: 'Yomogi', cursive;
+    user-select: none;
+    animation: nameJP 1s ease-in-out;
 }
 
 
@@ -118,7 +149,6 @@ p{
     width: 700px;
     height: fit-content;
     background-color: var(--color1);
-    filter: brightness(0.9);
     padding: 5%;
 }
 .statItem{
@@ -147,11 +177,6 @@ p{
     animation: stat 1s ease-in-out;
 }
 
-@keyframes stat {
-    0%{width: 250px}
-    50%{width: 0}
-    100%{ width: 50px}
-}
 
 
 .abilities{
@@ -169,6 +194,14 @@ p{
 }
 
 
+.flavor{
+    font-size: 25px;
+    font-family: 'Gemunu Libre', sans-serif;
+    margin: 5%;
+}
+
+
+
 .id{
     font-size: 40px;
     font-weight: bold;
@@ -176,7 +209,7 @@ p{
     position: absolute;
     right: 25px;
     bottom: 20%;
-    z-index: 1;
+    z-index: 1000;
 }
 
 
@@ -190,6 +223,7 @@ p{
     bottom: 30px;
     display: flex;
     justify-content: space-between;
+    z-index: 1000;
 }
 .sprite{
     width: 8%;
@@ -210,6 +244,30 @@ p{
 
 
 
+
+
+@keyframes stat {
+    0%{width: 250px}
+    50%{width: 0}
+    100%{ width: 50px}
+}
+
+@keyframes image {
+    from{
+        transform: 	scale(.7);
+        opacity: 0;
+    }
+    to{
+        transform: 	scale(1);
+        opacity: 1;
+    }
+}
+@keyframes nameJP {
+    from{
+        transform: translate(0, 20%);
+        opacity: 0;
+    }
+}
 
 
 

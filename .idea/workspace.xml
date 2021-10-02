@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fccae5d-2078-4e51-a938-9ff431697fdf" name="Default Changelist" comment="init">
+    <list default="true" id="3fccae5d-2078-4e51-a938-9ff431697fdf" name="Default Changelist" comment="update 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
@@ -79,7 +79,9 @@
       <workItem from="1632916407926" duration="13117000" />
       <workItem from="1632957944994" duration="2812000" />
       <workItem from="1633034505790" duration="5589000" />
-      <workItem from="1633095263116" duration="2144000" />
+      <workItem from="1633095263116" duration="24526000" />
+      <workItem from="1633168482620" duration="15501000" />
+      <workItem from="1633201984429" duration="6308000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1632663410197</created>
@@ -88,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632663410197</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update 1">
+      <created>1633105064368</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1633105064368</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,13 +117,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="update 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="687" y="215" key="FileChooserDialogImpl" timestamp="1633045693815">
+    <state x="687" y="215" key="FileChooserDialogImpl" timestamp="1633114879190">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="687" y="215" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1633045693815" />
+    <state x="687" y="215" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1633114879190" />
     <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1632663483305">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
