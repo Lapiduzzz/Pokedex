@@ -16,11 +16,21 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fccae5d-2078-4e51-a938-9ff431697fdf" name="Default Changelist" comment="update 1">
+    <list default="true" id="3fccae5d-2078-4e51-a938-9ff431697fdf" name="Default Changelist" comment="update 2; &#10;Evolution Chain">
+      <change afterPath="$PROJECT_DIR$/data/all_types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/loadPok.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/pokeball-pokemon-svgrepo-com.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
@@ -35,6 +45,7 @@
         <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="package.json" />
       </list>
     </option>
   </component>
@@ -57,6 +68,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Colosseum-master" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -82,6 +94,32 @@
       <workItem from="1633095263116" duration="24526000" />
       <workItem from="1633168482620" duration="15501000" />
       <workItem from="1633201984429" duration="6308000" />
+      <workItem from="1633209423273" duration="6128000" />
+      <workItem from="1633257319416" duration="2989000" />
+      <workItem from="1633268738803" duration="6840000" />
+      <workItem from="1633341890669" duration="2836000" />
+      <workItem from="1633350954092" duration="10605000" />
+      <workItem from="1633382654905" duration="1867000" />
+      <workItem from="1633385435054" duration="620000" />
+      <workItem from="1633386753875" duration="4540000" />
+      <workItem from="1633431924767" duration="12243000" />
+      <workItem from="1633468734389" duration="10992000" />
+      <workItem from="1633515803051" duration="6182000" />
+      <workItem from="1633524437695" duration="17385000" />
+      <workItem from="1633552357945" duration="929000" />
+      <workItem from="1633604122855" duration="5677000" />
+      <workItem from="1633637009099" duration="9092000" />
+      <workItem from="1633692405642" duration="11521000" />
+      <workItem from="1633732767220" duration="1882000" />
+      <workItem from="1633778823326" duration="13073000" />
+      <workItem from="1633817862152" duration="133000" />
+      <workItem from="1633818012488" duration="152000" />
+      <workItem from="1633818199050" duration="4166000" />
+      <workItem from="1633867050370" duration="6923000" />
+      <workItem from="1633900357574" duration="260000" />
+      <workItem from="1633901254025" duration="8697000" />
+      <workItem from="1633912612121" duration="531000" />
+      <workItem from="1633954713536" duration="8823000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1632663410197</created>
@@ -97,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633105064368</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update 2; &#10;Evolution Chain">
+      <created>1633209724438</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633209724438</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,7 +153,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -118,20 +175,33 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="update 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 1" />
+    <MESSAGE value="update 2; &#10;Evolution Chain" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 2; &#10;Evolution Chain" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="687" y="215" key="FileChooserDialogImpl" timestamp="1633114879190">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1633212532493">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="687" y="215" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1633114879190" />
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1632663483305">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1633212532493" />
+    <state x="687" y="215" key="FileChooserDialogImpl" timestamp="1633268890539">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632663483305" />
-    <state x="532" y="237" key="run.anything.popup" timestamp="1632316544947">
+    <state x="687" y="215" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1633268890539" />
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1633209659587">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1632316544947" />
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633209659587" />
+    <state x="475" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1633210520311">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="475" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1633210520311" />
+    <state x="532" y="237" key="run.anything.popup" timestamp="1633210730748">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1633210730748" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1633434980418">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1633434980418" />
   </component>
 </project>

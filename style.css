@@ -1,21 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 body{
-    margin: 0;
-    padding: 0;
-    font-size: 25px;
-    --color1: #F5E7AB;
+    --color1: linear-gradient(-45deg, rgb(217, 212, 182) 40%, rgb(242, 237, 204) 60%);
     --color2: #0388A6;
     --color3: #F58766;
     --color4: #BDE3F5;
     --color5: #013440;
+    --color6: #F2EDCC;
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+    overflow: hidden;
+    background: var(--color1);
+
+
 }
 p{
     margin: 0;
-    font-family: 'Old Standard TT', serif;
+    font-family: 'Gemunu Libre', sans-serif;
+    color: var(--color5);
+
 }
 
 
@@ -25,7 +31,8 @@ p{
 .wrapper{
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+
+
 }
 .input_wrapper{
     width: 100%;
@@ -42,25 +49,69 @@ p{
     height: 35px;
     font-size: 30px;
     border: none;
+    border-radius: 5px;
     outline: none;
+    font-family: 'Gemunu Libre', sans-serif;
+    transition: ease-in-out 0.3s;
 }
 .button{
     margin-left: 15px;
     height: 35px;
+    font-size: 30px;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
     background-color: var(--color4);
+    font-family: 'Gemunu Libre', sans-serif;
+    animation: image 0.3s ease-in-out;
+    display: none;
 }
 
+.pokeball{
+    position: absolute;
+    left: 30px;
+    width: auto;
+    height: 5vh;
+    cursor: pointer;
+    transform: scale(-1, 1)
+
+}
+.pokeball:hover{
+    animation: pokeball 0.6s ease-in-out;
+}
+
+
+/*                                                    Preloader                                                       */
+
+
+.preloader{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(180deg, rgb(176, 74, 110) 0%, rgba(242,237,204,1) 50%, rgb(56, 151, 176) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fetching 0.3s ease-in-out;
+}
+
+.load{
+    width: auto;
+    height: 128px;
+    animation: load 1s ease-in-out infinite;
+}
 
 
 /*                                                    Description                                                     */
 
 
+
 .description{
     width: 100%;
     height: 90%;
-    background-color: var(--color1);
+    background: var(--color1);
+
 
 }
 .pokemon{
@@ -86,10 +137,14 @@ p{
     height: auto;
     object-fit: contain;
     margin: -10% 10% 0 0;
-    animation: image 0.3s ease-in-out;
+    transition: ease-in-out 0.3s;
+    animation: image 0.6s ease-in-out;
 
 }
-
+.img:hover{
+    transition: ease-in-out 0.3s;
+    transform: scale(1.2);
+}
 
 .H_W{
     position: absolute;
@@ -98,6 +153,8 @@ p{
     z-index: 1;
     font-family: 'Stick No Bills', sans-serif;
     font-size: 30px;
+    color: var(--color5);
+
 }
 
 
@@ -110,6 +167,7 @@ p{
     left: 55%;
     z-index: 1000;
     font-family: 'Stick No Bills', sans-serif;
+    color: var(--color5);
 }
 
 
@@ -128,7 +186,10 @@ p{
     font-size: calc(50px + 25 * (100vw / 1920));
     text-transform: uppercase;
     text-align: center;
-    margin: 5%;
+    margin: 50px;
+    font-family: 'Orbitron', sans-serif;
+    animation: image ease-in-out 0.9s;
+    white-space: nowrap;
 }
 .name_jp{
     width: 50px;
@@ -141,19 +202,28 @@ p{
     opacity: 0.2;
     font-family: 'Yomogi', cursive;
     user-select: none;
-    animation: nameJP 1s ease-in-out;
+    animation: nameJP 1.2s ease-in-out;
+    color: var(--color2);
 }
+
 
 
 .stat{
     width: 700px;
-    height: fit-content;
-    background-color: var(--color1);
-    padding: 5%;
+    height: 300px;
+    padding: 2.5% 5% 5% 5%;
+}
+.stat_toggle{
+    animation: image ease-in-out 0.6s;
+    transition: 0.3s;
 }
 .statItem{
     display: flex;
     justify-content: space-between;
+    margin: 5px;
+    animation: image ease-in-out 0.3s;
+
+
 }
 .stat_text{
     font-family: 'Gemunu Libre', sans-serif;
@@ -168,22 +238,116 @@ p{
 .scale{
     width: 255px;
     height: 30px;
-    background-color: #ffffff;
+    background-color: #fffdf0;
 }
 .scale_line{
     width: 0;
     height: 100%;
     background-color: var(--color5);
-    animation: stat 1s ease-in-out;
+    animation: stat 0.6s ease-in-out;
+
 }
+
+
+
+.weaknesses{
+    display: flex;
+    justify-content: space-between;
+    animation: image ease-in-out 0.3s;
+
+}
+.attack, .defense{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 50%;
+    text-transform: uppercase;
+}
+.weak_header{
+    font-size: 40px;
+    align-self: center;
+    margin-bottom: 20px;
+}
+.weaknesses_type_multiplier{
+    margin: 5px 0;
+}
+.weaknesses_type{
+    line-height: 40px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: var(--color6);
+}
+
+
+.bug{
+    background-color: #16a085;
+}
+.dark{
+    background-color: #34495e;
+}
+.dragon{
+    background-color: #92CCD5;
+}
+.electric{
+    background-color: #f1c40f;
+}
+.fairy{
+    background-color: #FF6978;
+}
+.fighting{
+    background-color: #eb6651;
+}
+.fire{
+    background-color: #e74c3c;
+}
+.flying{
+    background-color: #64BFCC;
+}
+.ghost{
+    background-color: #C07BA7;
+}
+.grass{
+    background-color: #2ecc71;
+}
+.ground{
+    background-color: #96643C;
+}
+.ice{
+    background-color: #B2DEE3;
+}
+.normal{
+    background-color: #F5B1A5;
+}
+.poison{
+    background-color: #865F99;
+}
+.psychic{
+    background-color: #eb4962;
+}
+.rock{
+    background-color: #4E3B3A;
+}
+.steel{
+    background-color: #30aabc;
+}
+.water{
+    background-color: #3498db;
+}
+
+
+
 
 
 
 .abilities{
     font-size: 20px;
-    margin: 30px 0 0 0;
+    margin: 50px 0 0 0;
     font-family: 'Gemunu Libre', sans-serif;
     text-transform: uppercase;
+    animation: image ease-in-out 0.6s;
+
 
 }
 .abilities_text{
@@ -197,7 +361,10 @@ p{
 .flavor{
     font-size: 25px;
     font-family: 'Gemunu Libre', sans-serif;
-    margin: 5%;
+    margin: 25px;
+    text-align: center;
+    animation: image ease-in-out 0.3s;
+
 }
 
 
@@ -210,25 +377,73 @@ p{
     right: 25px;
     bottom: 20%;
     z-index: 1000;
+    animation: nameJP ease-in-out 2.4s;
+
 }
 
 
 /*                                                    sprites                                                         */
 
 
-.sprites{
+
+.lineBottom{
     position: absolute;
     background-color: var(--color3);
     width: 100%;
+    height: 15%;
     bottom: 30px;
+    z-index: 1000;
+    animation: line ease-in-out 0.3s;
+}
+.sprites{
     display: flex;
     justify-content: space-between;
-    z-index: 1000;
+}
+.evolution{
+    display: flex;
+    justify-content: space-between;
 }
 .sprite{
-    width: 8%;
+    width: 150px;
     height: 150px;
     margin-left: 30px;
+    animation: image ease-in-out 0.3s;
+}
+
+
+.evo_description{
+    height: fit-content;
+
+}
+.evo_sprite{
+    position: relative;
+    margin-left: 30px;
+    width: 150px;
+    height: 150px;
+    z-index: 155;
+    cursor: pointer;
+}
+.evo_name{
+    position: absolute;
+    font-size: 30px;
+    z-index: 244;
+    bottom: 10px;
+    margin-left: 30px;
+    color: #F2EDCC;
+    opacity: 0.8;
+    animation: evoName 0.6s ease-in-out;
+    text-transform: capitalize;
+
+}
+.evo_id{
+    position: absolute;
+    font-size: 100px;
+    z-index: 144;
+    opacity: 0.5;
+    bottom: 45px;
+    margin-left: 100px;
+    color: #F2EDCC;
+    animation: evoId 0.6s ease-in-out;
 }
 
 
@@ -242,14 +457,31 @@ p{
 }
 
 
+.special{
+    align-self: center;
+    margin-bottom: 15px;
+    color: #F2EDCC;
+    font-size: 75px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    animation: special 0.6s ease-in-out;
+}
+
+
 
 
 
 
 @keyframes stat {
-    0%{width: 250px}
-    50%{width: 0}
-    100%{ width: 50px}
+    0%{
+        width: 250px;
+        }
+    30%{
+        width: 0;
+        }
+    70%{
+        width: 100px;
+    }
 }
 
 @keyframes image {
@@ -263,12 +495,67 @@ p{
     }
 }
 @keyframes nameJP {
-    from{
+    0%{
+        transform: translate(0, 20%);
+        opacity: 0;
+    }
+    50%{
         transform: translate(0, 20%);
         opacity: 0;
     }
 }
 
+@keyframes line {
+    from{
+        transform: translate(0, 20%);
+    }
+}
 
+@keyframes pokeball {
+    0% {
+        transform: rotate(0);
+    }
+    35% {
+        transform: rotate(45deg);
+    }
+    70% {
+        transform: rotate(-45deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
 
+@keyframes evoId {
+    from{
+        transform: translate(30px);
+    }
+}
+@keyframes evoName {
+    from{
+        transform: translate(-30px);
+    }
+}
 
+@keyframes special {
+    0%{
+        opacity: 0;
+        transform: translate(0, 70px);
+    }
+    50%{
+        transform: translate(0, -40px);
+    }
+    100%{
+        transform: translate(0, 0);
+    }
+}
+@keyframes load {
+    from{
+        transform: rotate(-360deg);
+    }
+}
+@keyframes fetching {
+    from{
+        opacity: 0;
+    }
+}
