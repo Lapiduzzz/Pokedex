@@ -475,10 +475,10 @@ p{
 @keyframes stat {
     0%{
         width: 250px;
-        }
+    }
     30%{
         width: 0;
-        }
+    }
     70%{
         width: 100px;
     }
