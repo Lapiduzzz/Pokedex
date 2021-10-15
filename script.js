@@ -12,8 +12,15 @@ let payload = {
     evoPokemon: '',
 }
 let allTypes = types
-
+let typesPokemon = [{
+    name: '',
+    id: '',
+    sprite: '',
+}]
 // Listeners
+
+
+
 
 input.addEventListener('focus', () => { search.style.display = 'block'})
 input.addEventListener('blur', () => { search.style.display = 'none'})
@@ -130,7 +137,7 @@ const getMultipliers = (types) => {
     })
     return multipliers
 }
-// weaknesses
+
 const weaknessesMap = () => {
 
     let multipliers = (type)=>{
@@ -168,26 +175,27 @@ const weaknessesMap = () => {
 }
 
 const weaknessesTemplate = (arrItem,amountX) =>{
+    let typeSpan = (type, typesNum) => `<span class="${type} weaknesses_type" onclick="fillTypes(${typesNum})">${type}</span>`
     let type = arrItem.map(el =>{
         switch (el){
-            case 'bug': return `<span class="bug weaknesses_type">BUG</span>`
-            case 'dark': return `<span class="dark weaknesses_type">DARK</span>`
-            case 'dragon': return `<span class="dragon weaknesses_type">DRAGON</span>`
-            case 'electric': return `<span class="electric weaknesses_type">ELECTRIC</span>`
-            case 'fairy': return `<span class="fairy weaknesses_type">FAIRY</span>`
-            case 'fighting': return `<span class="fighting weaknesses_type">FIGHTING</span>`
-            case 'fire': return `<span class="fire weaknesses_type">FIRE</span>`
-            case 'flying': return `<span class="flying weaknesses_type">FLYING</span>`
-            case 'ghost': return `<span class="ghost weaknesses_type">GHOST</span>`
-            case 'grass': return `<span class="grass weaknesses_type">GRASS</span>`
-            case 'ground': return `<span class="ground weaknesses_type">GROUND</span>`
-            case 'ice': return `<span class="ice weaknesses_type">ICE</span>`
-            case 'normal': return `<span class="normal weaknesses_type">NORMAL</span>`
-            case 'poison': return `<span class="poison weaknesses_type">POISON</span>`
-            case 'psychic': return `<span class="psychic weaknesses_type">PSYCHIC</span>`
-            case 'rock': return `<span class="rock weaknesses_type">ROCK</span>`
-            case 'steel': return `<span class="steel weaknesses_type">STEEL</span>`
-            case 'water': return `<span class="water weaknesses_type">WATER</span>`
+            case 'bug': return typeSpan('bug', 7)
+            case 'dark': return typeSpan('dark', 17)
+            case 'dragon': return typeSpan('dragon', 16)
+            case 'electric': return typeSpan('electric', 13)
+            case 'fairy': return typeSpan('fairy', 7)
+            case 'fighting': return typeSpan('fighting', 2)
+            case 'fire': return typeSpan('fire', 18)
+            case 'flying': return typeSpan('flying', 3)
+            case 'ghost': return typeSpan('ghost', 8)
+            case 'grass': return typeSpan('grass', 12)
+            case 'ground': return typeSpan('ground', 5)
+            case 'ice': return typeSpan('ice', 15)
+            case 'normal': return typeSpan('normal', 1)
+            case 'poison': return typeSpan('poison', 4)
+            case 'psychic': return typeSpan('psychic', 14)
+            case 'rock': return typeSpan('rock', 6)
+            case 'steel': return typeSpan('steel', 9)
+            case 'water': return typeSpan('water', 11)
         }
     })
     return arrItem.length > 0 ? `<p class="weaknesses_type_multiplier">x${amountX} : ${type.join(' ')}</p> ` : ''
@@ -314,37 +322,42 @@ const changeThemeColor = () => {
 
 const abilities = () => (payload.pokemon.abilities.map(el => (`<span class="abilities_text">${el.ability.name}</span>`)).join(' '))
 
+
+
 const stats = () => (payload.pokemon.stats.map(el => (`<div class="statItem">
             <p class="stat_text">
                 <span class="stat_name">${el.stat.name}</span> : <span class="state_value">${el.base_stat}</span>
             </p>
             <div class="scale">
                 <div class="scale_line" 
-                    style="width: ${el.base_stat}px; 
+                    style="width: ${window.innerHeight <= 900 ? el.base_stat / 1.45 : el.base_stat }px; 
                     height: 100%"></div>
             </div>     
         </div>`)).join(''))
 
 const type = () => (payload.pokemon.types.map(el => {
+
+    const typeImg = (type, typeNumber) =>`<img class="typeImg" src="typesImg/${type}.png" alt="" onclick="fillTypes(${typeNumber})"/>`
+
     switch (el.type.name){
-        case 'bug': return `<img class="typeImg" src="typesImg/bug.png" alt=""/>`
-        case 'dark': return `<img class="typeImg" src="typesImg/dark.png" alt=""/>`
-        case 'dragon': return `<img class="typeImg" src="typesImg/dragon.png" alt=""/>`
-        case 'electric': return` <img class="typeImg" src="typesImg/electric.png" alt=""/>`
-        case 'fairy': return `<img class="typeImg" src="typesImg/fairy.png" alt=""/>`
-        case 'fighting': return `<img class="typeImg" src="typesImg/fighting.png" alt=""/>`
-        case 'fire': return `<img class="typeImg" src="typesImg/fire.png" alt=""/>`
-        case 'flying': return `<img class="typeImg" src="typesImg/flying.png" alt=""/>`
-        case 'ghost': return `<img class="typeImg" src="typesImg/ghost.png" alt=""/>`
-        case 'grass': return `<img class="typeImg" src="typesImg/grass.png" alt=""/>`
-        case 'ground': return `<img class="typeImg" src="typesImg/ground.png" alt=""/>`
-        case 'ice': return `<img class="typeImg" src="typesImg/ice.png" alt=""/>`
-        case 'normal': return `<img class="typeImg" src="typesImg/normal.png" alt=""/>`
-        case 'poison': return `<img class="typeImg" src="typesImg/poison.png" alt=""/>`
-        case 'psychic': return `<img class="typeImg" src="typesImg/psychic.png" alt=""/>`
-        case 'rock': return `<img class="typeImg" src="typesImg/rock.png" alt=""/>`
-        case 'steel': return `<img class="typeImg" src="typesImg/steel.png" alt=""/>`
-        case 'water': return `<img class="typeImg" src="typesImg/water.png" alt=""/>`
+        case 'bug': return typeImg('bug', 7)
+        case 'dark': return typeImg('dark', 17)
+        case 'dragon': return typeImg('dragon', 16)
+        case 'electric': return typeImg('electric', 13)
+        case 'fairy': return typeImg('fairy', 18)
+        case 'fighting': return typeImg('fighting', 2)
+        case 'fire': return typeImg('fire', 10)
+        case 'flying': return typeImg('flying', 3)
+        case 'ghost': return typeImg('ghost', 8)
+        case 'grass': return typeImg('grass', 12)
+        case 'ground': return typeImg('ground', 5)
+        case 'ice': return typeImg('ice', 15)
+        case 'normal': return typeImg('normal', 1)
+        case 'poison': return typeImg('poison', 4)
+        case 'psychic': return typeImg('psychic', 14)
+        case 'rock': return typeImg('rock', 6)
+        case 'steel': return typeImg('steel', 9)
+        case 'water': return typeImg('water', 11)
     }
 }).join(''))
 
@@ -379,13 +392,13 @@ const pokemonTemplate = () => {
 
     let genera = payload.pokemonSpecies.genera.find(el => el.language.name === 'en')
 
-
     if (payload.pokemon) {
         return `
-        <div class="description">
             <div class="pokemon">
                 <div class="info_block">
-                    <p class="name" style="${payload.pokemon.name.length > 15 && 'font-size: calc(40px + 25 * (100vw / 1920))'}">${payload.pokemon.name}</p>
+                    <p  class="name" style="${payload.pokemon.name.length > 15 && 'font-size: calc(40px + 25 * (100vw / 1920))'}">
+                        ${payload.pokemon.name}
+                    </p>
                     <p class="name_jp">${nameJP.name}</p>
                     <div class="stat">
                         <div class="stat_toggle">
@@ -410,17 +423,54 @@ const pokemonTemplate = () => {
                     <p class="genus">${genera.genus}</p>
                 </div>
                 <div class="lineBottom">
-                    <div class="sprites">
-                        ${sprites(payload.pokemon.sprites.front_default)}
-                        ${sprites(payload.pokemon.sprites.back_default)}
-                        ${sprites(payload.pokemon.sprites.front_shiny)}
-                        ${sprites(payload.pokemon.sprites.back_shiny)}
+                    ${window.innerWidth > 425 
+                    ?
+                    `<div class="sprites">
+                        <div class="sprite_wrapper">                        
+                            ${sprites(payload.pokemon.sprites.front_default)}
+                        </div >
+                        <div class="sprite_wrapper">                        
+                            ${sprites(payload.pokemon.sprites.back_default)}
+                        </div>
+                        <div class="sprite_wrapper">                        
+                            ${sprites(payload.pokemon.sprites.front_shiny)}
+                        </div>
+                        <div class="sprite_wrapper">                       
+                            ${sprites(payload.pokemon.sprites.back_shiny)}
+                        </div>
                         <div class="types">${type()}</div> 
+                    </div>`
+                    :
+                    `<div class="sprites">
+                        <div class="sprite_wrapper">                        
+                            ${sprites(payload.pokemon.sprites.front_default)}
+                        </div >
+                       <div class="sprite_wrapper">                        
+                       ${sprites(payload.pokemon.sprites.back_default)}
+                        </div>
+                         <div class="types">${type()}</div> 
+                   </div>`            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            }
                     </div>
                 </div>
-            </div>
-        </div> 
-        `
+`
     }
 }
 
@@ -516,10 +566,10 @@ const fillPokemon = (name) => {
             lineBottom.addEventListener('mouseleave', () => {
                 if (evoDisplay) {
                     lineBottom.innerHTML = `<div class="sprites">
-                                        <div>${sprites(payload.pokemon.sprites.front_default)}</div>
-                                        <div>${sprites(payload.pokemon.sprites.back_default)}</div>
-                                        <div>${sprites(payload.pokemon.sprites.front_shiny)}</div>
-                                        <div>${sprites(payload.pokemon.sprites.back_shiny)}</div>
+                                        <div class="sprite_wrapper">${sprites(payload.pokemon.sprites.front_default)}</div>
+                                        <div class="sprite_wrapper">${sprites(payload.pokemon.sprites.back_default)}</div>
+                                        <div class="sprite_wrapper">${sprites(payload.pokemon.sprites.front_shiny)}</div>
+                                        <div class="sprite_wrapper">${sprites(payload.pokemon.sprites.back_shiny)}</div>
                                         <div class="types">${type()}</div> 
                                     </div>`
                     evoDisplay = false
@@ -530,5 +580,56 @@ const fillPokemon = (name) => {
 
 fillPokemon(Math.round(Math.random()*151))
 
+
+
+
+
+
+// types
+
+const getTypes = async (type) =>{
+
+    let typeDescription = ''
+
+    let response = await fetch(`https://pokeapi.co/api/v2/type/${type}/`)
+    let data = await response.json()
+    typeDescription = data
+
+    return typeDescription
+}
+
+const typesPokemonTemplate = (type) => {
+
+    return `
+        <div class="typeDescription">
+            <div class="typesPokemon">${type.pokemon.map(el => `<p>${el.pokemon.name}</p>`)}</div>
+        </div>
+    `
+}
+
+
+
+const getTypesPokemon = async (name) =>{
+
+    let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+    let data = await response.json()
+
+    typesPokemon = [...typesPokemon, {name: data.name, id: data.id, sprite:data.sprites.front_default}]
+
+    return typesPokemon
+}
+
+const fillTypes = (type) => {
+    getTypes(type)
+        .then( res =>{
+            res.pokemon.map(async el =>{
+                return await getTypesPokemon(el.pokemon.name)
+            })
+            console.log(typesPokemon)
+        })
+        .then( res => {
+            description.innerHTML = typesPokemonTemplate(res)
+        })
+}
 
 

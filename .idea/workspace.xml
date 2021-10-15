@@ -25,8 +25,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fccae5d-2078-4e51-a938-9ff431697fdf" name="Default Changelist" comment="update 3; &#10;Evolution Chain&#10;Stats&#10;Weaknesses&#10;Animation&#10;Color Theme">
+    <list default="true" id="3fccae5d-2078-4e51-a938-9ff431697fdf" name="Default Changelist" comment="update 4; &#10;Refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
@@ -46,6 +47,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
@@ -117,7 +123,13 @@
       <workItem from="1633912612121" duration="531000" />
       <workItem from="1633954713536" duration="11649000" />
       <workItem from="1634036742488" duration="12708000" />
-      <workItem from="1634072147107" duration="5182000" />
+      <workItem from="1634072147107" duration="5487000" />
+      <workItem from="1634116540934" duration="11130000" />
+      <workItem from="1634203999707" duration="1706000" />
+      <workItem from="1634213170504" duration="10523000" />
+      <workItem from="1634242989858" duration="6321000" />
+      <workItem from="1634286972212" duration="22419000" />
+      <workItem from="1634333120896" duration="5162000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1632663410197</created>
@@ -147,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633964916552</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update 4; &#10;Refactoring">
+      <created>1634077649182</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1634077649182</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,29 +201,34 @@
     <MESSAGE value="update 1" />
     <MESSAGE value="update 2; &#10;Evolution Chain" />
     <MESSAGE value="update 3; &#10;Evolution Chain&#10;Stats&#10;Weaknesses&#10;Animation&#10;Color Theme" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 3; &#10;Evolution Chain&#10;Stats&#10;Weaknesses&#10;Animation&#10;Color Theme" />
+    <MESSAGE value="update 4; &#10;Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 4; &#10;Refactoring" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1633212532493">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1634249409927">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1633212532493" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1634249409927" />
     <state x="687" y="215" key="FileChooserDialogImpl" timestamp="1633268890539">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="687" y="215" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1633268890539" />
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1633964957938">
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1634249508306">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633964957938" />
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634249508306" />
     <state x="475" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1633210520311">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="475" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1633210520311" />
-    <state x="532" y="237" key="run.anything.popup" timestamp="1633210730748">
+    <state x="706" y="389" key="git4idea.ui.GitResetDialog" timestamp="1634248977967">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1633210730748" />
+    <state x="706" y="389" key="git4idea.ui.GitResetDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1634248977967" />
+    <state x="532" y="237" key="run.anything.popup" timestamp="1634224153485">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634224153485" />
     <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1633964777889">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -23,7 +23,9 @@ p{
     color: var(--color5);
 
 }
-
+span{
+    font-size: 25px;
+}
 
 /*                                                    wrapper                                                         */
 
@@ -558,4 +560,440 @@ p{
     from{
         opacity: 0;
     }
+}
+
+
+
+@media screen and (max-height: 900px) {
+
+    span{
+        font-size: 25px;
+    }
+
+    .name{
+        font-size: calc(50px + 25 * (100vw / 1920));
+        margin: 35px;
+    }
+    .name_jp{
+        width: 50px;
+        font-size: 4em;
+        right: 45%;
+    }
+    .stat{
+        width: 600px;
+        height: 300px;
+        padding: 2.5% 5% 5% 5%;
+    }
+    .statItem{
+        margin: 2.5px;
+    }
+    .state_name{
+        font-size: 25px;
+    }
+    .state_value{
+        font-size: 30px;
+    }
+    .scale{
+        width: 170px;
+        height: 30px;
+        background-color: #fffdf0;
+    }
+    .weak_header{
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+    .weaknesses_type_multiplier{
+        margin: 2.5px 0;
+        font-size: 20px;
+    }
+    .weaknesses_type{
+        line-height: 35px;
+        padding: 5px 15px;
+        font-size: 20px;
+    }
+    .abilities{
+        font-size: 20px;
+        margin: 30px 0 0 0;
+    }
+    .abilities_text{
+        font-size: 25px;
+        margin: 0 15px;
+    }
+    .flavor{
+        font-size: 25px;
+        margin: 35px 15px 0 15px;
+    }
+    .id{
+        font-size: 30px;
+        right: 20px;
+    }
+
+    .H_W{
+        font-size: 25px;
+    }
+    .genus{
+        font-size: 20px;
+    }
+
+    .lineBottom{
+        height: 15%;
+        bottom: 25px;
+    }
+    .sprite{
+        width: 130px;
+        height: 130px;
+        margin-left: 15px;
+
+    }
+    .evo_name{
+        font-size: 20px;
+        bottom: 10px;
+        margin-left: 15px;
+    }
+    .evo_id{
+        font-size: 75px;
+        bottom: 60px;
+        margin-left: 65px;
+    }
+    .types{
+        margin-right: 15px;
+    }
+    .typeImg{
+        width: 70px;
+        height: 85px;
+    }
+    .special{
+        font-size: 75px;
+    }
+}
+@media screen and (max-height: 720px) {
+
+    span{
+        font-size: 15px;
+    }
+
+    .name{
+        font-size: calc(25px + 25 * (100vw / 1920));
+        margin: 40px;
+    }
+    .name_jp{
+        width: 50px;
+        font-size: 3.5em;
+        right: 45%;
+    }
+    .stat{
+        width: 400px;
+        height: 200px;
+        padding: 2.5% 5% 5% 5%;
+    }
+    .statItem{
+        margin: 2.5px;
+    }
+    .state_name{
+        font-size: 13px;
+    }
+    .state_value{
+        font-size: 20px;
+    }
+    .scale{
+        width: 170px;
+        height: 20px;
+        background-color: #fffdf0;
+    }
+    .weak_header{
+        font-size: 25px;
+        align-self: center;
+        margin-bottom: 10px;
+    }
+    .weaknesses_type_multiplier{
+        margin: 2.5px 0;
+        font-size: 15px;
+    }
+    .weaknesses_type{
+        line-height: 30px;
+        padding: 2.5px 10px;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+    .abilities{
+        font-size: 15px;
+        margin: 30px 0 0 0;
+    }
+    .abilities_text{
+        font-size: 20px;
+        margin: 0 15px;
+    }
+    .flavor{
+        font-size: 15px;
+        margin: 70px 15px 0 15px;
+    }
+    .id{
+        font-size: 30px;
+        right: 10px;
+    }
+
+    .H_W{
+        font-size: 20px;
+    }
+    .genus{
+        font-size: 13px;
+    }
+
+    .lineBottom{
+        height: 15%;
+        bottom: 20px;
+    }
+    .sprite{
+        width: 110px;
+        height: 110px;
+        margin-left: 15px;
+
+    }
+    .evo_sprite{
+        position: relative;
+        z-index: 155;
+        cursor: pointer;
+    }
+    .evo_name{
+        font-size: 20px;
+        bottom: 5px;
+        margin-left: 15px;
+
+
+    }
+    .evo_id{
+        font-size: 65px;
+        bottom: 45px;
+        margin-left: 65px;
+    }
+    .types{
+        margin-right: 15px;
+    }
+    .typeImg{
+        width: 55px;
+        height: 70px;
+    }
+    .special{
+        font-size: 50px;
+    }
+
+
+
+
+
+}
+@media screen and (orientation: portrait) {
+    body{
+        width: 100vw;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+    }
+    span{
+        font-size: 20px;
+    }
+
+    .wrapper{
+        width: 100vw;
+    }
+    .input_wrapper{
+        height: 10vh;
+    }
+    .inputName{
+        height: 35px;
+        font-size: 30px;
+        width: 50%;
+    }
+    .button{
+        margin-left: 15px;
+        font-size: 20px;
+        width: 20%;
+    }
+    .pokeball{
+        position: relative;
+        left: 10px;
+        height: 7vh;
+    }
+
+    /*                                                    Description                                                     */
+
+    .pokemon{
+        flex-direction: column-reverse;
+    }
+
+    /*                                                    Img Block                                                       */
+
+    .img_block{
+        width: 100%;
+        height: 90vh;
+        clip-path: polygon(40% 0, 100% 0, 100% 60%, 60% 100%, 0 100%, 0 40%);
+    }
+    .img{
+        width: 90%;
+        margin: -15vh 2% 0 0;
+    }
+    .H_W{
+        top: 17vh;
+        right: 4%;
+        font-size: 20px;
+    }
+    .genus{
+        font-size: 15px;
+        bottom: 20vh;
+        left: auto;
+        right: 20%;
+        white-space: nowrap;
+    }
+
+    /*                                                    Info Block                                                      */
+
+    .info_block{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden;
+    }
+
+    .name{
+        position: absolute;
+        top: 12vh;
+        right: 10%;
+        font-size: calc(25px + 25 * (100vw / 1920));
+        margin: 0;
+        z-index: 1000;
+    }
+    .name_jp{
+        font-size: 2em;
+        left: 8%;
+        top: 10vh;
+        z-index: 900;
+    }
+
+    .stat{
+        width: 100%;
+        height: fit-content;
+        padding: 5%;
+    }
+    .statItem{
+        margin: 5px;
+    }
+    .state_value{
+        font-size: 25px;
+    }
+    .scale{
+        width: 170px;
+        height: 25px;
+    }
+
+    .weak_header{
+        font-size: 30px;
+    }
+    .weaknesses_type_multiplier{
+        margin: 5px 0;
+    }
+    .weaknesses_type{
+        line-height: 40px;
+        padding: 5px 15px;
+        font-size: 15px;
+    }
+
+    .abilities{
+        font-size: 20px;
+        margin: 100px 2% 0 2%;
+    }
+    .abilities_text{
+        font-size: 25px;
+        margin: 0 0 0 2%;
+    }
+
+    .flavor{
+        font-size: 25px;
+        margin: 50px 25px;
+    }
+
+    .id{
+        font-size: 30px;
+        right: 2%;
+        bottom: 20%;
+    }
+
+    /*                                                    sprites                                                         */
+
+    .lineBottom{
+        width: 100vw;
+        height: 15%;
+        bottom: 30px;
+    }
+    .sprite{
+        width: auto;
+        height: 15vh;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .evo_description{
+        height: fit-content;
+
+    }
+    .evo_sprite{
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .evo_name{
+        font-size: 15px;
+        bottom: 10px;
+        margin-left: 30px;
+    }
+    .evo_id{
+        font-size: 50px;
+        bottom: auto;
+        top: 2%;
+        margin-left: 15%;
+    }
+
+
+    .types{
+        position: absolute;
+        bottom: 105%;
+        left: 2%;
+        align-self: center;
+        margin-right: 30px;
+    }
+    .typeImg{
+        width: auto;
+        height: 10vh;
+    }
+
+    .special{
+        margin-bottom: 15px;
+        font-size: 40px;
+        margin-right: 30px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.typeDescription {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 90%;
+}
+
+.typesPokemon {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
