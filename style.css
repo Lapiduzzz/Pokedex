@@ -790,7 +790,7 @@ span{
 
     }
     span{
-        font-size: 20px;
+        font-size: 15px;
     }
 
     .wrapper{
@@ -879,11 +879,11 @@ span{
         margin: 5px;
     }
     .state_value{
-        font-size: 25px;
+        font-size: 20px;
     }
     .scale{
         width: 170px;
-        height: 25px;
+        height: 20px;
     }
 
     .weak_header{
@@ -899,11 +899,11 @@ span{
     }
 
     .abilities{
-        font-size: 20px;
-        margin: 100px 2% 0 2%;
+        font-size: 15px;
+        margin: 50px 2% 0 2%;
     }
     .abilities_text{
-        font-size: 25px;
+        font-size: 20px;
         margin: 0 0 0 2%;
     }
 
