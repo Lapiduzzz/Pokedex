@@ -839,9 +839,9 @@ span{
     }
     .genus{
         font-size: 15px;
-        bottom: 20vh;
+        bottom: 16%;
         left: auto;
-        right: 20%;
+        right: 25%;
         white-space: nowrap;
     }
 
@@ -914,8 +914,8 @@ span{
 
     .id{
         font-size: 30px;
-        right: 2%;
-        bottom: 20%;
+        right: 3%;
+        bottom: 16%;
     }
 
     /*                                                    sprites                                                         */
@@ -923,7 +923,7 @@ span{
     .lineBottom{
         width: 100vw;
         height: 15%;
-        bottom: 30px;
+        bottom: 0;
     }
     .sprite{
         width: auto;
