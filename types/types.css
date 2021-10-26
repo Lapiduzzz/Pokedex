@@ -1,0 +1,420 @@
+
+/*                                                    Type page                                                       */
+
+.type_description {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 90%;
+    display: flex;
+
+}
+
+.type_pokemon {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.type_pokemon::-webkit-scrollbar{
+    background-color: var(--color2);
+    width: 5px;
+}
+.type_pokemon::-webkit-scrollbar-thumb{
+    background-color: var(--color3);
+}
+
+.type_pokemon_block{
+    position: relative;
+    background: var(--color2);
+    opacity: 0.8;
+    width: 15%;
+    height: 20%;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.type_pokemon_block:hover{
+    transform: scale(1.1);
+    opacity: 1;
+    background: var(--color3);
+    transition: 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.type_pokemon_sprite{
+    position: relative;
+    width: auto;
+    height: 90%;
+    z-index: 145;
+    animation: image ease-in-out 0.3s;
+    transition: 0.3s ease-in-out;
+}
+.type_pokemon_name{
+    bottom: 10%;
+    left: 5%;
+    position: absolute;
+    font-size: 3vh;
+    z-index: 146;
+    color: var(--color1);
+    transition: 0.3s ease-in-out;
+    animation: evoName 0.6s ease-in-out;
+    text-transform: capitalize;
+}
+.type_pokemon_id{
+    position: absolute;
+    font-size: 10vh;
+    z-index: 144;
+    opacity: 0.3;
+    bottom: 40%;
+    right: 5%;
+    color: var(--color1);
+    transition: 0.3s ease-in-out;
+    animation: evoId 0.6s ease-in-out;
+}
+
+.right_block{
+    width: 11%;
+    padding: 0.5%;
+}
+.types_damage{
+    animation: image ease-in-out 0.3s;
+}
+.types_description_text{
+    font-size: 2.5vh;
+    animation: image ease-in-out 0.3s;
+    user-select: none;
+}
+
+/*                                                    Type bottom line                                                */
+
+.types_bottom_line{
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--color3);
+    z-index: 1000;
+    transition: 0.6s ease-in-out;
+}
+.type_bottom_line_hide{
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--color3);
+    z-index: 1000;
+    transform: translate(90%);
+    transition: 0.6s ease-in-out;
+}
+.type_bottom_line_hide:hover{
+    transform: translate(0);
+}
+.type_bottom_line_hide_generation{
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--color3);
+    z-index: 1000;
+    transform: translate(-98%);
+    transition: 0.6s ease-in-out;
+}
+.type_bottom_line_hide_generation:hover{
+    transform: translate(0);
+}
+
+.type_icon{
+    width: auto;
+    height: 10vh;
+    margin: 10px 0;
+    cursor: pointer ;
+    animation: image 0.6s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+.type_icon:hover{
+    height: 15vh;
+    transform: translate(0, -20%);
+    transition: 0.3s ease-in-out;
+}
+
+.generation{
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    width: auto;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+.generation:hover{
+    position: relative;
+    transition: ease-in-out 0.3s;
+    transform: scale(1.1);
+    background-color: var(--color2);
+    z-index: 10;
+}
+.generation_img{
+    position: relative;
+    height: 100%;
+    z-index: 2;
+}
+.generation_text{
+    position: absolute;
+    font-size: 5vh;
+    top: 2%;
+    z-index: 1;
+    animation: image 0.3s ease-in-out;
+}
+.generation_num{
+    position: absolute;
+    bottom: 0;
+    font-size: 3vh;
+    z-index: 3;
+    transition: ease-in-out 0.3s;
+}
+
+.bug_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(22, 160, 133) 60%);
+}
+.dark_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(52, 73, 94) 60%);
+}
+.dragon_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(146, 204, 213) 60%);
+}
+.electric_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(241, 196, 15) 60%);
+}
+.fairy_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(255, 105, 120) 60%);
+}
+.fighting_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(235, 102, 81) 60%);
+}
+.fire_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(231, 76, 60) 60%);
+}
+.flying_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(100, 191, 204) 60%);
+}
+.ghost_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(192, 123, 167) 60%);
+}
+.grass_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(46, 204, 113) 60%);
+}
+.ground_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(150, 100, 60) 60%);
+}
+.ice_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(178, 222, 227) 60%);
+}
+.normal_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(245, 177, 165) 60%);
+}
+.poison_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(134, 95, 153) 60%);
+}
+.psychic_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(235, 73, 98) 60%);
+}
+.rock_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(78, 59, 58) 60%);
+}
+.steel_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(48, 170, 188) 60%);
+}
+.water_type_2{
+    background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgb(52, 152, 219) 60%);
+}
+
+.bug{
+    background-color: #16a085;
+}
+.dark{
+    background-color: #34495e;
+}
+.dragon{
+    background-color: #92ccd5;
+}
+.electric{
+    background-color: #f1c40f;
+}
+.fairy{
+    background-color: #ff6978;
+}
+.fighting{
+    background-color: #eb6651;
+}
+.fire{
+    background-color: #e74c3c;
+}
+.flying{
+    background-color: #64bfcc;
+}
+.ghost{
+    background-color: #c07ba7;
+}
+.grass{
+    background-color: #2ecc71;
+}
+.ground{
+    background-color: #96643c;
+}
+.ice{
+    background-color: #b2dee3;
+}
+.normal{
+    background-color: #f5b1a5;
+}
+.poison{
+    background-color: #865F99;
+}
+.psychic{
+    background-color: #eb4962;
+}
+.rock{
+    background-color: #4e3b3a;
+}
+.steel{
+    background-color: #30aabc;
+}
+.water{
+    background-color: #3498db;
+}
+
+/*                                                    Media                                                           */
+
+@media screen and (max-height: 900px) {
+    .types_description_text{
+        font-size: 2.2vh;
+    }
+
+    .generation_img{
+        height: 80%;
+    }
+}
+@media screen and (max-height: 720px) {
+
+    .types_description_text{
+        font-size: 2.1vh;
+    }
+
+    .type_icon{
+        height: 8vh;
+        margin: 15px 0;
+    }
+    .type_icon:hover{
+        height: 13vh;
+    }
+
+    .generation_img{
+        height: 70%;
+    }
+    .generation_num{
+        font-size: 3vh;
+        bottom: 5%;
+    }
+
+
+}
+@media screen and (orientation: portrait) {
+
+    .type_description {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .type_pokemon {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .type_pokemon_block{
+        width: 30%;
+    }
+
+    .type_pokemon_sprite{
+        height: 80%;
+    }
+    .type_pokemon_name{
+        left: auto;
+    }
+    .type_pokemon_id{
+        right: auto;
+    }
+
+    .right_block{
+        display: none;
+    }
+
+    .types_bottom_line{
+        display: none;
+    }
+    .type_bottom_line_hide{
+        display: none;
+    }
+
+
+
+    .generation_mobile{
+        position: relative;
+        width: 100%;
+        height: 10vh;
+        background-color: var(--color3);
+        z-index: 1000;
+        transition: 0.6s ease-in-out;
+    }
+
+    .generation{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 10vh;
+        width: auto;
+        margin-bottom: 5%;
+        background-color: var(--color3);
+        border-radius: 25px;
+
+    }
+    .generation_img{
+        position: relative;
+        height: 100%;
+        z-index: 2;
+    }
+    .generation_num{
+        position: relative;
+        bottom: 20%;
+        font-size: 4vh;
+    }
+}
+

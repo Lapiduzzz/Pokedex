@@ -12,15 +12,8 @@ let payload = {
     evoPokemon: '',
 }
 let allTypes = types
-let typesPokemon = [{
-    name: '',
-    id: '',
-    sprite: '',
-}]
+
 // Listeners
-
-
-
 
 input.addEventListener('focus', () => { search.style.display = 'block'})
 input.addEventListener('blur', () => { search.style.display = 'none'})
@@ -175,27 +168,27 @@ const weaknessesMap = () => {
 }
 
 const weaknessesTemplate = (arrItem,amountX) =>{
-    let typeSpan = (type, typesNum) => `<span class="${type} weaknesses_type" onclick="fillTypes(${typesNum})">${type}</span>`
+    let typeSpan = (type, typesNum) => `<span class="cxxx ${type} weaknesses_type" onclick="fillTypes(${typesNum})">${type}</span>`
     let type = arrItem.map(el =>{
-        switch (el){
-            case 'bug': return typeSpan('bug', 7)
-            case 'dark': return typeSpan('dark', 17)
-            case 'dragon': return typeSpan('dragon', 16)
-            case 'electric': return typeSpan('electric', 13)
-            case 'fairy': return typeSpan('fairy', 7)
-            case 'fighting': return typeSpan('fighting', 2)
-            case 'fire': return typeSpan('fire', 18)
-            case 'flying': return typeSpan('flying', 3)
-            case 'ghost': return typeSpan('ghost', 8)
-            case 'grass': return typeSpan('grass', 12)
-            case 'ground': return typeSpan('ground', 5)
-            case 'ice': return typeSpan('ice', 15)
+        switch (el instanceof Object ? el.name : el){
             case 'normal': return typeSpan('normal', 1)
+            case 'fighting': return typeSpan('fighting', 2)
+            case 'flying': return typeSpan('flying', 3)
             case 'poison': return typeSpan('poison', 4)
-            case 'psychic': return typeSpan('psychic', 14)
+            case 'ground': return typeSpan('ground', 5)
             case 'rock': return typeSpan('rock', 6)
+            case 'bug': return typeSpan('bug', 7)
+            case 'ghost': return typeSpan('ghost', 8)
             case 'steel': return typeSpan('steel', 9)
+            case 'fire': return typeSpan('fire', 10)
             case 'water': return typeSpan('water', 11)
+            case 'grass': return typeSpan('grass', 12)
+            case 'electric': return typeSpan('electric', 13)
+            case 'psychic': return typeSpan('psychic', 14)
+            case 'ice': return typeSpan('ice', 15)
+            case 'dragon': return typeSpan('dragon', 16)
+            case 'dark': return typeSpan('dark', 17)
+            case 'fairy': return typeSpan('fairy', 18)
         }
     })
     return arrItem.length > 0 ? `<p class="weaknesses_type_multiplier">x${amountX} : ${type.join(' ')}</p> ` : ''
@@ -203,17 +196,17 @@ const weaknessesTemplate = (arrItem,amountX) =>{
 
 // Change theme color
 
+const changeColor = (color1,color2,color3, color4,color5,color6) =>{
+    document.querySelector("body").style.setProperty('--color1', color1)
+    document.querySelector("body").style.setProperty('--color2', color2)
+    document.querySelector("body").style.setProperty('--color3', color3)
+    document.querySelector("body").style.setProperty('--color4', color4)
+    document.querySelector("body").style.setProperty('--color5', color5)
+    document.querySelector("body").style.setProperty('--color6', color6)
+
+}
+
 const changeThemeColor = () => {
-
-    const changeColor = (color1,color2,color3, color4,color5,color6) =>{
-        document.querySelector("body").style.setProperty('--color1', color1)
-        document.querySelector("body").style.setProperty('--color2', color2)
-        document.querySelector("body").style.setProperty('--color3', color3)
-        document.querySelector("body").style.setProperty('--color4', color4)
-        document.querySelector("body").style.setProperty('--color5', color5)
-        document.querySelector("body").style.setProperty('--color6', color6)
-
-    }
 
     switch (payload.pokemonSpecies.color.name) {
         case 'black' :  changeColor(
@@ -234,31 +227,31 @@ const changeThemeColor = () => {
             break
         case 'brown' :  changeColor(
             '',
-            '#734E0E',
-            '#027373',
+            '#635341',
+            '#2E6E70',
             '',
             '',
             '')
             break
         case 'gray' :   changeColor(
             '',
-            '#969696',
-            '#99CCCC',
+            '#B3B3B3',
+            '#4789A1',
             '',
             '',
             '')
             break
         case 'green' :  changeColor(
             '',
-            '#03a6a6',
-            '#f25c5c',
+            '#339E9E',
+            '#C76374',
             '',
             '',
             '')
             break
         case 'pink' :   changeColor(
             '',
-            '#f24b88',
+            '#EDA5B3',
             '#63AEBF',
             '',
             '',
@@ -266,32 +259,32 @@ const changeThemeColor = () => {
             break
         case 'purple' : changeColor(
             '',
-            '#A65D92',
-            '#04BFAD',
+            '#B38CB8',
+            '#349E9E',
             '',
             '',
             '')
             break
         case 'red' : changeColor(
             '',
-            '#f24405',
-            '#039999',
+            '#C76374',
+            '#339E9E',
             '',
             '',
             '')
             break
         case 'white' :  changeColor(
             '',
-            '#F2F2F2',
-            '#F2D06B',
+            '#ECEDED',
+            '#F8DCA4',
             '',
             '',
             '')
             break
         case 'yellow' : changeColor(
             '',
-            '#F2C063',
-            '#276573',
+            '#F8DCA4',
+            '#729BB2',
             '',
             '',
             '')
@@ -322,8 +315,6 @@ const changeThemeColor = () => {
 
 const abilities = () => (payload.pokemon.abilities.map(el => (`<span class="abilities_text">${el.ability.name}</span>`)).join(' '))
 
-
-
 const stats = () => (payload.pokemon.stats.map(el => (`<div class="statItem">
             <p class="stat_text">
                 <span class="stat_name">${el.stat.name}</span> : <span class="state_value">${el.base_stat}</span>
@@ -340,24 +331,24 @@ const type = () => (payload.pokemon.types.map(el => {
     const typeImg = (type, typeNumber) =>`<img class="typeImg" src="typesImg/${type}.png" alt="" onclick="fillTypes(${typeNumber})"/>`
 
     switch (el.type.name){
-        case 'bug': return typeImg('bug', 7)
-        case 'dark': return typeImg('dark', 17)
-        case 'dragon': return typeImg('dragon', 16)
-        case 'electric': return typeImg('electric', 13)
-        case 'fairy': return typeImg('fairy', 18)
-        case 'fighting': return typeImg('fighting', 2)
-        case 'fire': return typeImg('fire', 10)
-        case 'flying': return typeImg('flying', 3)
-        case 'ghost': return typeImg('ghost', 8)
-        case 'grass': return typeImg('grass', 12)
-        case 'ground': return typeImg('ground', 5)
-        case 'ice': return typeImg('ice', 15)
         case 'normal': return typeImg('normal', 1)
+        case 'fighting': return typeImg('fighting', 2)
+        case 'flying': return typeImg('flying', 3)
         case 'poison': return typeImg('poison', 4)
-        case 'psychic': return typeImg('psychic', 14)
+        case 'ground': return typeImg('ground', 5)
         case 'rock': return typeImg('rock', 6)
+        case 'bug': return typeImg('bug', 7)
+        case 'ghost': return typeImg('ghost', 8)
         case 'steel': return typeImg('steel', 9)
+        case 'fire': return typeImg('fire', 10)
         case 'water': return typeImg('water', 11)
+        case 'grass': return typeImg('grass', 12)
+        case 'electric': return typeImg('electric', 13)
+        case 'psychic': return typeImg('psychic', 14)
+        case 'ice': return typeImg('ice', 15)
+        case 'dragon': return typeImg('dragon', 16)
+        case 'dark': return typeImg('dark', 17)
+        case 'fairy': return typeImg('fairy', 18)
     }
 }).join(''))
 
@@ -449,24 +440,7 @@ const pokemonTemplate = () => {
                        ${sprites(payload.pokemon.sprites.back_default)}
                         </div>
                          <div class="types">${type()}</div> 
-                   </div>`            
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                   </div>`
             }
                     </div>
                 </div>
@@ -474,24 +448,29 @@ const pokemonTemplate = () => {
     }
 }
 
+// Preloader
+
+const preloader = () => {
+    description.innerHTML = `<div class="preloader">
+                                <img class="load" src="./img/loadPok.png" alt="">      
+                            </div>`
+}
+
 // Fill pokemon page
 
 const fillPokemon = (name) => {
 
-    // Preloader
+    // Loading
 
-    description.innerHTML = `<div class="preloader">
-                                <img class="load" src="./img/loadPok.png" alt="">      
-                            </div>`
+    preloader()
 
     // Getting pokemon description
 
     getPokemon(name)
 
         .then(async payload => {
-
+                            // delete async to evo
             // Getting evolution sprites
-
             await getEvolution(payload.pokemonSpecies.evolution_chain.url)
 
         })
@@ -584,52 +563,5 @@ fillPokemon(Math.round(Math.random()*151))
 
 
 
-
-// types
-
-const getTypes = async (type) =>{
-
-    let typeDescription = ''
-
-    let response = await fetch(`https://pokeapi.co/api/v2/type/${type}/`)
-    let data = await response.json()
-    typeDescription = data
-
-    return typeDescription
-}
-
-const typesPokemonTemplate = (type) => {
-
-    return `
-        <div class="typeDescription">
-            <div class="typesPokemon">${type.pokemon.map(el => `<p>${el.pokemon.name}</p>`)}</div>
-        </div>
-    `
-}
-
-
-
-const getTypesPokemon = async (name) =>{
-
-    let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-    let data = await response.json()
-
-    typesPokemon = [...typesPokemon, {name: data.name, id: data.id, sprite:data.sprites.front_default}]
-
-    return typesPokemon
-}
-
-const fillTypes = (type) => {
-    getTypes(type)
-        .then( res =>{
-            res.pokemon.map(async el =>{
-                return await getTypesPokemon(el.pokemon.name)
-            })
-            console.log(typesPokemon)
-        })
-        .then( res => {
-            description.innerHTML = typesPokemonTemplate(res)
-        })
-}
 
 

@@ -29,7 +29,6 @@ span{
 
 /*                                                    wrapper                                                         */
 
-
 .wrapper{
     width: 100vw;
     height: 100vh;
@@ -71,7 +70,7 @@ span{
 
 .pokeball{
     position: absolute;
-    left: 30px;
+    right: 30px;
     width: auto;
     height: 5vh;
     cursor: pointer;
@@ -82,9 +81,20 @@ span{
     animation: pokeball 0.6s ease-in-out;
 }
 
+.all_Pokemon{
+    position: absolute;
+    width: auto;
+    height: 8vh;
+    left: 30px;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+.all_Pokemon:hover{
+    transition: ease-in-out 0.3s;
+    height: 10vh;
+}
 
 /*                                                    Preloader                                                       */
-
 
 .preloader{
     position: absolute;
@@ -97,17 +107,13 @@ span{
     align-items: center;
     animation: fetching 0.3s ease-in-out;
 }
-
 .load{
     width: auto;
     height: 128px;
     animation: load 1s ease-in-out infinite;
 }
 
-
 /*                                                    Description                                                     */
-
-
 
 .description{
     width: 100%;
@@ -121,9 +127,7 @@ span{
     justify-content: space-between;
 }
 
-
 /*                                                    Img Block                                                       */
-
 
 .img_block{
     width: 50%;
@@ -141,11 +145,10 @@ span{
     margin: -10% 10% 0 0;
     transition: ease-in-out 0.3s;
     animation: image 0.6s ease-in-out;
-
 }
 .img:hover{
     transition: ease-in-out 0.3s;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .H_W{
@@ -159,7 +162,6 @@ span{
 
 }
 
-
 .genus{
     font-size: 20px;
     margin: 0 2%;
@@ -172,9 +174,7 @@ span{
     color: var(--color5);
 }
 
-
 /*                                                    Info Block                                                      */
-
 
 .info_block{
     width: 50%;
@@ -182,7 +182,6 @@ span{
     flex-direction: column;
     align-items: center;
 }
-
 
 .name{
     font-size: calc(50px + 25 * (100vw / 1920));
@@ -207,8 +206,6 @@ span{
     animation: nameJP 1.2s ease-in-out;
     color: var(--color2);
 }
-
-
 
 .stat{
     width: 700px;
@@ -250,8 +247,6 @@ span{
 
 }
 
-
-
 .weaknesses{
     display: flex;
     justify-content: space-between;
@@ -273,6 +268,11 @@ span{
 }
 .weaknesses_type_multiplier{
     margin: 5px 0;
+    transition: 0.3s ease-in-out;
+}
+.weaknesses_type_multiplier:hover{
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
 }
 .weaknesses_type{
     line-height: 40px;
@@ -280,8 +280,13 @@ span{
     border-radius: 5px;
     font-size: 20px;
     color: var(--color6);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
 }
-
+.weaknesses_type:hover{
+    transition: 0.3s ease-in-out;
+    color: var(--color5);
+}
 
 .bug{
     background-color: #16a085;
@@ -338,11 +343,6 @@ span{
     background-color: #3498db;
 }
 
-
-
-
-
-
 .abilities{
     font-size: 20px;
     margin: 50px 0 0 0;
@@ -359,7 +359,6 @@ span{
     text-transform: capitalize;
 }
 
-
 .flavor{
     font-size: 25px;
     font-family: 'Gemunu Libre', sans-serif;
@@ -368,8 +367,6 @@ span{
     animation: image ease-in-out 0.3s;
 
 }
-
-
 
 .id{
     font-size: 40px;
@@ -383,10 +380,7 @@ span{
 
 }
 
-
-/*                                                    sprites                                                         */
-
-
+/*                                                    Bottom line                                                     */
 
 .lineBottom{
     position: absolute;
@@ -412,7 +406,6 @@ span{
     animation: image ease-in-out 0.3s;
 }
 
-
 .evo_description{
     height: fit-content;
 
@@ -424,6 +417,11 @@ span{
     height: 150px;
     z-index: 155;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.evo_sprite:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
 }
 .evo_name{
     position: absolute;
@@ -448,7 +446,6 @@ span{
     animation: evoId 0.6s ease-in-out;
 }
 
-
 .types{
     align-self: center;
     margin-right: 30px;
@@ -456,8 +453,13 @@ span{
 .typeImg{
     width: 85px;
     height: 100px;
+    cursor: pointer ;
+    transition: 0.3s ease-in-out;
 }
-
+.typeImg:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
 
 .special{
     align-self: center;
@@ -467,12 +469,10 @@ span{
     text-transform: uppercase;
     opacity: 0.8;
     animation: special 0.6s ease-in-out;
+    user-select: none;
 }
 
-
-
-
-
+/*                                                    Animation                                                       */
 
 @keyframes stat {
     0%{
@@ -562,7 +562,7 @@ span{
     }
 }
 
-
+/*                                                    Media                                                           */
 
 @media screen and (max-height: 900px) {
 
@@ -776,11 +776,6 @@ span{
     .special{
         font-size: 50px;
     }
-
-
-
-
-
 }
 @media screen and (orientation: portrait) {
     body{
@@ -813,6 +808,15 @@ span{
         position: relative;
         left: 10px;
         height: 7vh;
+    }
+    .all_Pokemon{
+        position: relative;
+        width: auto;
+        height: 5vh;
+        left: -15px;
+    }
+    .all_Pokemon:hover{
+        height: 6vh;
     }
 
     /*                                                    Description                                                     */
@@ -970,7 +974,6 @@ span{
         font-size: 40px;
         margin-right: 30px;
     }
-
 }
 
 
@@ -984,16 +987,3 @@ span{
 
 
 
-.typeDescription {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 90%;
-}
-
-.typesPokemon {
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}

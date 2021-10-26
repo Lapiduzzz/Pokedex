@@ -26,7 +26,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fccae5d-2078-4e51-a938-9ff431697fdf" name="Default Changelist" comment="update 5; &#10;Update mobile style">
+      <change afterPath="$PROJECT_DIR$/img/generation1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/generation2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/generation3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/generation4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/generation5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/generation6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/generation7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/generation8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/types/types.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/types/types.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,9 +50,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="package.json" />
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="package.json" />
       </list>
     </option>
   </component>
@@ -56,12 +68,15 @@
     <option name="projectConfigVersion" value="2" />
   </component>
   <component name="ProjectId" id="1yUnNycCt9oyogmpxX48k5KrVxs" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -128,7 +143,24 @@
       <workItem from="1634242989858" duration="6321000" />
       <workItem from="1634286972212" duration="22419000" />
       <workItem from="1634333120896" duration="5557000" />
-      <workItem from="1634375012841" duration="2493000" />
+      <workItem from="1634375012841" duration="9808000" />
+      <workItem from="1634467376255" duration="3198000" />
+      <workItem from="1634553934064" duration="4790000" />
+      <workItem from="1634587964523" duration="6574000" />
+      <workItem from="1634637275809" duration="14201000" />
+      <workItem from="1634672167302" duration="10669000" />
+      <workItem from="1634686567478" duration="333000" />
+      <workItem from="1634726409051" duration="6505000" />
+      <workItem from="1634853236471" duration="4570000" />
+      <workItem from="1634896782619" duration="47454000" />
+      <workItem from="1634985696188" duration="16399000" />
+      <workItem from="1635028375808" duration="7138000" />
+      <workItem from="1635075672739" duration="6687000" />
+      <workItem from="1635087097159" duration="2411000" />
+      <workItem from="1635114337292" duration="9310000" />
+      <workItem from="1635158620778" duration="12680000" />
+      <workItem from="1635197255857" duration="6336000" />
+      <workItem from="1635247498284" duration="9062000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1632663410197</created>
@@ -179,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634377950518</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update 5; &#10;Update mobile style">
+      <created>1634378384809</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1634378384809</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +249,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init" />
     <MESSAGE value="update 1" />
     <MESSAGE value="update 2; &#10;Evolution Chain" />
@@ -228,10 +268,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="687" y="215" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1633268890539" />
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1634377959056">
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1634378567682">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634377959056" />
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634378567682" />
     <state x="475" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1633210520311">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -240,13 +280,24 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="706" y="389" key="git4idea.ui.GitResetDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1634248977967" />
-    <state x="532" y="237" key="run.anything.popup" timestamp="1634224153485">
+    <state x="532" y="237" key="run.anything.popup" timestamp="1634997559966">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634224153485" />
-    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1633964777889">
+    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634997559966" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1634908857475">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1633964777889" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634908857475" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/types/types.js</url>
+          <line>377</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

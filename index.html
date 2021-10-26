@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="types/types.css">
     <title>Pokedex</title>
 </head>
 <body>
     <div class="wrapper">
         <div class="input_wrapper">
+            <img class="all_Pokemon"
+                 src="https://www.pngkey.com/png/full/924-9243232_pokemon-player-with-this-free-guide-blue-and.png"
+                 alt=""
+                 onclick="fillGenerationPokemons(1,151)">
             <input type="text" class="inputName" placeholder="Name or ID">
             <button class="button">Search</button>
             <img class="pokeball" src="img/pokeball.png" alt="">
@@ -17,5 +22,6 @@
     </div>
     <script type="text/javascript" src="data/all_types.js"></script>
     <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="types/types.js"></script>
 </body>
 </html>
