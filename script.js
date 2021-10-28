@@ -52,36 +52,45 @@ const getEvolution = async (url) => {
     let evoPokemon = []
     let evoPokemonName = []
 
+
     let response = await fetch(url)
     let data = await response.json()
 
-    let evolutionName1 = await data.chain.species.name
-    let evolutionName2 = await data.chain.evolves_to.map(el => (el.species.name)).join(',')
-    let evolutionName3 = await data.chain.evolves_to.map(el => (el.evolves_to.map(el => el.species.name))).join(',')
+    let evolutionName1 = data.chain.species.name
+    let evolutionName2 = data.chain.evolves_to.map(el => (el.species.name)).join(',')
+    let evolutionName3 = data.chain.evolves_to.map(el => (el.evolves_to.map(el => el.species.name))).join(',')
 
     evolutionName1 && evoPokemonName.push(evolutionName1.split(','))
     evolutionName2 && evoPokemonName.push(evolutionName2.split(','))
     evolutionName3 && evoPokemonName.push(evolutionName3.split(','))
 
     let fetchingEvoPokemon = async (name) => {
+        if (name !== '') {
+            let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+            let data = await response.json()
 
-        let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-        let data = await response.json()
-
-        evoPokemon.push({
-            id: data.id,
-            name: data.name,
-            sprite: data.sprites.front_default
-        })
+            evoPokemon.push({
+                id: data.id,
+                name: data.name,
+                sprite: data.sprites.front_default
+            })
+        }
     }
 
-    evoPokemonName.map(el => {
-        fetchingEvoPokemon(el)
-        if(el.length > 1){
-            el.map( innerEl =>{ fetchingEvoPokemon(innerEl)})
+    for (let el of evoPokemonName){
+
+        if (el == 'mimikyu'){
+            await fetchingEvoPokemon('mimikyu-disguised')
+            break
         }
 
-    })
+        if(el.length > 1){
+            for (let innerEl of el){
+                await fetchingEvoPokemon(innerEl)
+            }
+        }
+        else await fetchingEvoPokemon(el)
+    }
 
     return payload = {...payload, evoPokemon: evoPokemon}
 }
@@ -385,7 +394,7 @@ const pokemonTemplate = () => {
 
     if (payload.pokemon) {
         return `
-            <div class="pokemon">
+            <div class="pokemon" >
                 <div class="info_block">
                     <p  class="name" style="${payload.pokemon.name.length > 15 && 'font-size: calc(40px + 25 * (100vw / 1920))'}">
                         ${payload.pokemon.name}
@@ -409,7 +418,9 @@ const pokemonTemplate = () => {
                     <p class="id">${payload.pokemon.id}</p>
                 </div>
                 <div class="img_block">
-                    <img class="img" src="https://img.pokemondb.net/artwork/large/${payload.pokemon.name}.jpg" alt="">
+                    <img class="img" src="https://img.pokemondb.net/artwork/large/${
+                    payload.pokemon.name === 'mimikyu-disguised' ? 'mimikyu' : payload.pokemon.name
+                    }.jpg" alt="">
                     <p class="H_W">H: ${payload.pokemon.height / 10} W: ${payload.pokemon.weight / 10}</p>
                     <p class="genus">${genera.genus}</p>
                 </div>
@@ -555,6 +566,24 @@ const fillPokemon = (name) => {
                 }
             })
         })
+}
+
+// Get all pokemons data
+
+const getPokemonData = async (start, end) =>{
+
+    if(!localStorage.pokemons || JSON.parse(localStorage.pokemons).length < 898) {
+        for (let i = start; i <= end; i++) {
+            let payload = await getPokemon(i)
+            allPokemons = [...allPokemons, {
+                id: payload.pokemon.id,
+                name: payload.pokemon.name,
+                type: payload.pokemon.types,
+                sprite: payload.pokemon.sprites.front_default
+            }]
+        }
+        localStorage.setItem('pokemons', JSON.stringify(allPokemons))
+    }
 }
 
 fillPokemon(Math.round(Math.random()*151))

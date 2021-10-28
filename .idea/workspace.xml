@@ -25,21 +25,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fccae5d-2078-4e51-a938-9ff431697fdf" name="Default Changelist" comment="update 5; &#10;Update mobile style">
-      <change afterPath="$PROJECT_DIR$/img/generation1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/generation2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/generation3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/generation4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/generation5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/generation6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/generation7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/generation8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/types.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/types.js" afterDir="false" />
+    <list default="true" id="3fccae5d-2078-4e51-a938-9ff431697fdf" name="Default Changelist" comment="update 6; &#10;Add types page&#10;add generations page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/types/types.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +71,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Colosseum-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -160,7 +150,11 @@
       <workItem from="1635114337292" duration="9310000" />
       <workItem from="1635158620778" duration="12680000" />
       <workItem from="1635197255857" duration="6336000" />
-      <workItem from="1635247498284" duration="9062000" />
+      <workItem from="1635247498284" duration="9772000" />
+      <workItem from="1635285228088" duration="1551000" />
+      <workItem from="1635294861903" duration="2071000" />
+      <workItem from="1635336160988" duration="12154000" />
+      <workItem from="1635417921176" duration="8293000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1632663410197</created>
@@ -218,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634378384809</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update 6; &#10;Add types page&#10;add generations page">
+      <created>1635267509087</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1635267509087</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +258,8 @@
     <MESSAGE value="update 4; &#10;Refactoring" />
     <MESSAGE value="update 5; &#10;Adaptation&#10;Mobile style" />
     <MESSAGE value="update 5; &#10;Update mobile style" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 5; &#10;Update mobile style" />
+    <MESSAGE value="update 6; &#10;Add types page&#10;add generations page" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 6; &#10;Add types page&#10;add generations page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1634249409927">
@@ -268,10 +270,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="687" y="215" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1633268890539" />
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1634378567682">
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1635267516774">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634378567682" />
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1635267516774" />
     <state x="475" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1633210520311">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -288,16 +290,5 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634908857475" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/types/types.js</url>
-          <line>377</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

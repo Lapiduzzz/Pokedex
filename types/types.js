@@ -309,6 +309,148 @@ const fillTypes = async (type) => {
 
     // Get pokemon description
 
+    let pokemonType = type
+    allTypesPokemon = []
+    typeDamage = await typeDescription.damage_relations
+
+    switch (type){
+        case 1: typeDescriptionText = normal
+            pokemonType = 'normal'
+            break
+        case 2: typeDescriptionText = fighting
+            pokemonType = 'fighting'
+            break
+        case 3: typeDescriptionText = flying
+            pokemonType = 'flying'
+            break
+        case 4: typeDescriptionText = poison
+            pokemonType = 'poison'
+            break
+        case 5: typeDescriptionText = ground
+            pokemonType = 'ground'
+            break
+        case 6: typeDescriptionText = rock
+            pokemonType = 'rock'
+            break
+        case 7: typeDescriptionText = bug
+            pokemonType = 'bug'
+            break
+        case 8: typeDescriptionText = ghost
+            pokemonType = 'ghost'
+            break
+        case 9: typeDescriptionText = steel
+            pokemonType = 'steel'
+            break
+        case 10: typeDescriptionText = fire
+            pokemonType = 'fire'
+            break
+        case 11: typeDescriptionText = water
+            pokemonType = 'water'
+            break
+        case 12: typeDescriptionText = grass
+            pokemonType = 'grass'
+            break
+        case 13: typeDescriptionText = electric
+            pokemonType = 'electric'
+            break
+        case 14: typeDescriptionText = psychic
+            pokemonType = 'psychic'
+            break
+        case 15: typeDescriptionText = ice
+            pokemonType = 'ice'
+            break
+        case 16: typeDescriptionText = dragon
+            pokemonType = 'dragon'
+            break
+        case 17: typeDescriptionText = dark
+            pokemonType = 'dark'
+            break
+        case 18: typeDescriptionText = fairy
+            pokemonType = 'fairy'
+            break
+    }
+
+    let getTypePok = async () =>{
+        allTypesPokemon = await Promise.all(typeDescription.pokemon.map(async el => {
+            return await getTypesPokemon(el.pokemon.name)
+        }))
+
+        let x = allTypesPokemon.length - 1
+
+        return allTypesPokemon[x]
+    }
+
+    let getTypePokLocal = () =>{
+        for (let el of JSON.parse(localStorage.pokemons)){
+            if(el.type[0].type.name === pokemonType || el.type[1] && el.type[1].type.name === pokemonType){
+                allTypesPokemon.push(el)   }
+        }
+        return allTypesPokemon
+    }
+
+
+    // Fill page
+
+    !localStorage.pokemons || localStorage.pokemons.length < 898
+        ? description.innerHTML = typesPokemonTemplate(await getTypePok(),typeDamage, type)
+        : description.innerHTML = typesPokemonTemplate(await getTypePokLocal(),typeDamage, type)
+
+
+        // Selectors
+
+    let typesContent =  document.querySelector('.type_pokemon')
+    let bottomLine =  document.querySelector('.types_bottom_line')
+    let rightBlock = document.querySelector('.right_block')
+
+    // Right block
+
+    let DescriptionTypeVisible = false
+
+    rightBlock.addEventListener('mouseover', ()=>{
+        if(!DescriptionTypeVisible) {
+            rightBlock.innerHTML = `<p class="types_description_text">${typeDescriptionText}</p>`
+            DescriptionTypeVisible = true
+        }
+    })
+    rightBlock.addEventListener('mouseleave', ()=>{
+        if(DescriptionTypeVisible) {
+            rightBlock.innerHTML = `<div class="types_damage">
+                            ${weaknessesTemplate(typeDamage.double_damage_from, '2 Damage from')}
+                            ${weaknessesTemplate(typeDamage.double_damage_to, '2 Damage to')}
+                            ${weaknessesTemplate(typeDamage.half_damage_from, '0.5 Damage from')}
+                            ${weaknessesTemplate(typeDamage.half_damage_to, '0.5 Damage to')}
+                            ${weaknessesTemplate(typeDamage.no_damage_from, '0 Damage From')}
+                            ${weaknessesTemplate(typeDamage.no_damage_to, '0 Damage to')}
+                        </div>`
+            DescriptionTypeVisible = false
+        }
+    })
+
+    // Pokemon block hover and click
+
+    PokemonBlock()
+
+    // Bottom Line hide
+
+    typesContent.addEventListener('scroll', ()=>{typesContent.scrollTop > 300
+                                                                    ? bottomLine.classList = 'type_bottom_line_hide'
+                                                                    : bottomLine.classList = 'types_bottom_line'
+    })
+}
+
+/*
+const fillTypes = async (type) => {
+
+    // Loading
+
+    preloader()
+
+    // Get pokemon name
+
+    let typeDescription = await getTypes(type)
+
+    // Get pokemon description
+
     allTypesPokemon = await Promise.all(typeDescription.pokemon.map(async el => {
         return await getTypesPokemon(el.pokemon.name)
     }))
@@ -395,11 +537,11 @@ const fillTypes = async (type) => {
     // Bottom Line hide
 
     typesContent.addEventListener('scroll', ()=>{typesContent.scrollTop > 300
-                                                                    ? bottomLine.classList = 'type_bottom_line_hide'
-                                                                    : bottomLine.classList = 'types_bottom_line'
+        ? bottomLine.classList = 'type_bottom_line_hide'
+        : bottomLine.classList = 'types_bottom_line'
     })
 }
-
+*/
 
 
 
@@ -543,14 +685,17 @@ let fillGenerationPokemons = async (start, end) => {
 
     allGenerationsPokemons = []
 
-    for (let i = start; i <= end; i++) {
-        let payload = await getPokemon(i)
-        allGenerationsPokemons = [...allGenerationsPokemons, {
-            id: payload.pokemon.id,
-            name: payload.pokemon.name,
-            type: payload.pokemon.types,
-            sprite: payload.pokemon.sprites.front_default
-        }]
+    let getPokemonsData = async () => {
+        for (let i = start; i <= end; i++) {
+            let payload = await getPokemon(i)
+            allGenerationsPokemons = [...allGenerationsPokemons, {
+                id: payload.pokemon.id,
+                name: payload.pokemon.name,
+                type: payload.pokemon.types,
+                sprite: payload.pokemon.sprites.front_default
+            }]
+        }
+        return allGenerationsPokemons
     }
 
     //Fill all pokemon page
@@ -576,7 +721,9 @@ let fillGenerationPokemons = async (start, end) => {
             break
     }
 
-    description.innerHTML = generationPokemonTemplate(allGenerationsPokemons,colorTheme)
+    !localStorage.pokemons || localStorage.pokemons.length < 898
+        ? description.innerHTML = generationPokemonTemplate(await getPokemonsData(),colorTheme)
+        : description.innerHTML = generationPokemonTemplate(JSON.parse(localStorage.pokemons).slice(start - 1, end),colorTheme)
 
     // Selectors
 
