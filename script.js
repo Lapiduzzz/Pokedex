@@ -12,7 +12,6 @@ let payload = {
     evoPokemon: '',
 }
 let allTypes = types
-let allPokemons = []
 
 // Listeners
 
@@ -572,7 +571,7 @@ const fillPokemon = (name) => {
 // Get all pokemons data
 
 const getPokemonData = async (start, end) =>{
-
+    let allPokemons = []
     if(!localStorage.pokemons || JSON.parse(localStorage.pokemons).length < 898) {
         for (let i = start; i <= end; i++) {
             let payload = await getPokemon(i)
