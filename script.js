@@ -12,6 +12,7 @@ let payload = {
     evoPokemon: '',
 }
 let allTypes = types
+let allPokemons = []
 
 // Listeners
 
