@@ -575,12 +575,12 @@ const getPokemonData = async (start, end) =>{
     if(!localStorage.pokemons || JSON.parse(localStorage.pokemons).length < 898) {
         for (let i = start; i <= end; i++) {
             let payload = await getPokemon(i)
-            allPokemons = [...allPokemons, {
+            allPokemons.push({
                 id: payload.pokemon.id,
                 name: payload.pokemon.name,
                 type: payload.pokemon.types,
                 sprite: payload.pokemon.sprites.front_default
-            }]
+            })
         }
         localStorage.setItem('pokemons', JSON.stringify(allPokemons))
     }
