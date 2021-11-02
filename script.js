@@ -368,6 +368,68 @@ const sprites = (src) => {
     else return ''
 }
 
+const pushFavorite = (id) => {
+    const favoriteButtonsWrapper = document.querySelector('.favorite_wrapper')
+
+    let leave = new MouseEvent('mouseleave',{
+        'view': window,
+        'bubbles': true,
+        'cancelable': true
+    })
+    favoriteButtonsWrapper.dispatchEvent(leave)
+
+    let addFavorite = []
+    let noDuplicate = []
+
+    if(!localStorage.favorite){
+        noDuplicate.push(id)
+    }
+    else {
+        addFavorite = JSON.parse(localStorage.favorite)
+        addFavorite.push(id)
+        noDuplicate = addFavorite.filter((el, index) => addFavorite.indexOf(el) === index)
+    }
+    localStorage.setItem('favorite', JSON.stringify(noDuplicate))
+
+    isFavorite(id)
+}
+const removeFavorite = (id) =>{
+    const favoriteButtonsWrapper = document.querySelector('.favorite_wrapper')
+
+    let leave = new MouseEvent('mouseleave',{
+        'view': window,
+        'bubbles': true,
+        'cancelable': true
+    })
+    favoriteButtonsWrapper.dispatchEvent(leave)
+
+    let favorite = JSON.parse(localStorage.favorite)
+    let removeFavorite = favorite.filter(el => el !== id)
+    localStorage.setItem('favorite', JSON.stringify(removeFavorite))
+    isFavorite(id)
+}
+const isFavorite = (id) =>{
+    const like = document.querySelector('.like')
+    const dislike = document.querySelector('.dislike')
+    const buttons = document.querySelector('.favorite_buttons')
+
+    like && like.addEventListener('click', ()=>{
+        buttons.innerHTML = isFavorite(id)
+    })
+    dislike && dislike.addEventListener('click', () =>{
+        buttons.innerHTML = isFavorite(id)
+
+    })
+
+    if(localStorage.favorite) {
+        let favorites = JSON.parse(localStorage.favorite)
+        return favorites.includes(payload.pokemon.id) || favorites.includes(payload.pokemon.name)
+                                            ? `<img class="dislike" src="img/dislike.png" alt="" onclick="removeFavorite(${id})">`
+                                            : `<img class="like" src="img/like.png" alt="" onclick="pushFavorite(${id})">`
+    }
+    else return `<img class="like" src="img/like.png" alt="" onclick="pushFavorite(${id})">`
+}
+
 // Evolution
 
 const evolutions = () => (payload.evoPokemon.map(el => `<div class="evo_description">
@@ -396,6 +458,10 @@ const pokemonTemplate = () => {
         return `
             <div class="pokemon" >
                 <div class="info_block">
+                    <div class="favorite_wrapper">
+                        <div class="favorite_buttons">${isFavorite(payload.pokemon.id)}</div>
+                        <p class="favorite_text"></p>
+                    </div>
                     <p  class="name" style="${payload.pokemon.name.length > 15 && 'font-size: calc(40px + 25 * (100vw / 1920))'}">
                         ${payload.pokemon.name}
                     </p>
@@ -408,26 +474,26 @@ const pokemonTemplate = () => {
                     </div>
                     <p class="flavor">
                         ${flavorText.flavor_text.replace('\f', '\n')
-                                                .replace('\u00ad\\n', '')
-                                                .replace('\u00ad', '')
-                                                .replace(' -\\n', ' - ')
-                                                .replace('-\\n', '-')
-                                                .replace('\\n', ' ')
-                                                .replace('é', 'É')}
+            .replace('\u00ad\\n', '')
+            .replace('\u00ad', '')
+            .replace(' -\\n', ' - ')
+            .replace('-\\n', '-')
+            .replace('\\n', ' ')
+            .replace('é', 'É')}
                     </p>
                     <p class="id">${payload.pokemon.id}</p>
                 </div>
                 <div class="img_block">
                     <img class="img" src="https://img.pokemondb.net/artwork/large/${
-                    payload.pokemon.name === 'mimikyu-disguised' ? 'mimikyu' : payload.pokemon.name
-                    }.jpg" alt="">
+            payload.pokemon.name === 'mimikyu-disguised' ? 'mimikyu' : payload.pokemon.name
+        }.jpg" alt="">
                     <p class="H_W">H: ${payload.pokemon.height / 10} W: ${payload.pokemon.weight / 10}</p>
                     <p class="genus">${genera.genus}</p>
                 </div>
                 <div class="lineBottom">
-                    ${window.innerWidth > 425 
-                    ?
-                    `<div class="sprites">
+                    ${window.innerWidth > 425
+            ?
+            `<div class="sprites">
                         <div class="sprite_wrapper">                        
                             ${sprites(payload.pokemon.sprites.front_default)}
                         </div >
@@ -442,8 +508,8 @@ const pokemonTemplate = () => {
                         </div>
                         <div class="types">${type()}</div> 
                     </div>`
-                    :
-                    `<div class="sprites">
+            :
+            `<div class="sprites">
                         <div class="sprite_wrapper">                        
                             ${sprites(payload.pokemon.sprites.front_default)}
                         </div >
@@ -452,7 +518,7 @@ const pokemonTemplate = () => {
                         </div>
                          <div class="types">${type()}</div> 
                    </div>`
-            }
+        }
                     </div>
                 </div>
 `
@@ -469,7 +535,7 @@ const preloader = () => {
 
 // Fill pokemon page
 
-const fillPokemon = (name) => {
+const fillPokemond = (name) => {
 
     // Loading
 
@@ -496,12 +562,35 @@ const fillPokemon = (name) => {
             const stat = document.querySelector('.stat')
             const stat_toggle = document.querySelector('.stat_toggle')
             const lineBottom = document.querySelector('.lineBottom')
+            const like = document.querySelector('.like')
+            const dislike = document.querySelector('.dislike')
+            const buttons = document.querySelector('.favorite_wrapper')
 
             // Weaknesses
 
             let [attack, defense] = weaknessesMap()
 
             // Listeners
+
+            let pushFavorite = (id) => {
+                let addFavorite = []
+                let noDuplicate = []
+
+                if(!localStorage.favorite){
+                    noDuplicate.push(id)
+                }
+                else {
+                    addFavorite = JSON.parse(localStorage.favorite)
+                    addFavorite.push(id)
+                    noDuplicate = addFavorite.filter((el, index) => addFavorite.indexOf(el) === index)
+                }
+                localStorage.setItem('favorite', JSON.stringify(noDuplicate))
+            }
+            let removeFavorite = (id) =>{
+                let x = JSON.parse(localStorage.favorite)
+                x.filter(el => el !== id)
+                localStorage.setItem('favorite', JSON.stringify(x))
+            }
 
             let evoDisplay = false
             let weakDisplay = false
@@ -565,10 +654,132 @@ const fillPokemon = (name) => {
                     evoDisplay = false
                 }
             })
+            like.addEventListener('click', ()=>{
+                pushFavorite(name)
+                buttons.innerHTML = isFavorite()
+            })
+            dislike.addEventListener('click', () =>{
+                alert('ads')
+            })
         })
 }
 
-// Get all pokemons data
+const fillPokemon = async (name) => {
+
+    // Loading
+
+    await preloader()
+
+    // Getting pokemon description
+
+    let response = await getPokemon(name)
+
+    // Getting evolution sprites
+
+    let payload = await getEvolution(response.pokemonSpecies.evolution_chain.url)
+
+    // Fill HTML template
+
+    description.innerHTML = await pokemonTemplate()
+
+
+    // Selectors
+
+    const stat = document.querySelector('.stat')
+    const stat_toggle = document.querySelector('.stat_toggle')
+    const lineBottom = document.querySelector('.lineBottom')
+    const favoriteButtonsWrapper = document.querySelector('.favorite_wrapper')
+    const favoriteText = document.querySelector('.favorite_text')
+
+
+    // Weaknesses
+
+    let [attack, defense] = weaknessesMap()
+
+    // Listeners
+
+    let evoDisplay = false
+    let weakDisplay = false
+    let favoriteDisplay = false
+
+    stat.addEventListener('mouseover', () => {
+        if (!weakDisplay) {
+            stat_toggle.innerHTML = `<div class="weaknesses">
+                                    <div class="attack">
+                                        <p class="weak_header">Attack</p>
+                                        ${weaknessesTemplate(attack[0], 0.25)}
+                                        ${weaknessesTemplate(attack[1], 0.5)}
+                                        ${weaknessesTemplate(attack[2], 1)}
+                                        ${weaknessesTemplate(attack[3], 1.5)}
+                                        ${weaknessesTemplate(attack[4], 2)}
+                                        ${weaknessesTemplate(attack[5], 4)}
+                                    </div>
+                                    <div class="defense">
+                                        <p class="weak_header">defense</p>
+                                        ${weaknessesTemplate(defense[0], 0.25)}
+                                        ${weaknessesTemplate(defense[1], 0.5)}
+                                        ${weaknessesTemplate(defense[2], 1)}
+                                        ${weaknessesTemplate(defense[3], 1.5)}
+                                        ${weaknessesTemplate(defense[4], 2)}
+                                        ${weaknessesTemplate(defense[5], 4)}
+                                    </div>
+                                </div>`
+
+            weakDisplay = true
+        }
+    })
+    stat.addEventListener('mouseleave', () => {
+        if (weakDisplay) {
+            stat_toggle.innerHTML = `${stats()}<p class="abilities">Abilities:  ${abilities()}</p>`
+
+            weakDisplay = false
+        }
+    })
+    lineBottom.addEventListener('mouseover', () => {
+        if (!evoDisplay) {
+            lineBottom.innerHTML = `<div class="evolution">
+                                        ${payload.evoPokemon.length > 0
+                ? evolutions(payload)
+                : `<img class="sprite" 
+                                                                        src=${payload.pokemon.sprites.front_default}>`}
+                                        ${payload.pokemonSpecies.is_legendary ? `<p class="special">legendary</p>` : ''}
+                                        ${payload.pokemonSpecies.is_mythical ? `<p class="special">mythical</p>` : ''}
+                                        <div class="types">${type()}</div>
+                                    </div>`
+            evoDisplay = true
+        }
+    })
+    lineBottom.addEventListener('mouseleave', () => {
+        if (evoDisplay) {
+            lineBottom.innerHTML = `<div class="sprites">
+                                        <div class="sprite_wrapper">${sprites(payload.pokemon.sprites.front_default)}</div>
+                                        <div class="sprite_wrapper">${sprites(payload.pokemon.sprites.back_default)}</div>
+                                        <div class="sprite_wrapper">${sprites(payload.pokemon.sprites.front_shiny)}</div>
+                                        <div class="sprite_wrapper">${sprites(payload.pokemon.sprites.back_shiny)}</div>
+                                        <div class="types">${type()}</div> 
+                                    </div>`
+            evoDisplay = false
+        }
+    })
+    favoriteButtonsWrapper.addEventListener('mouseover', ()=>{
+        if(!favoriteDisplay) {
+            favoriteButtonsWrapper.style = 'width: 10vw; background-color: var(--color3)'
+            favoriteText.innerHTML = 'favorite'
+            isFavorite(payload.pokemon.id)
+            favoriteDisplay = true
+        }
+    })
+    favoriteButtonsWrapper.addEventListener('mouseleave', ()=>{
+        if(favoriteDisplay) {
+            favoriteButtonsWrapper.style = 'width: 2vw'
+            favoriteText.innerHTML = ''
+            isFavorite(payload.pokemon.id)
+            favoriteDisplay = false
+        }
+    })
+    favoriteText.addEventListener('click', ()=>{fillGenerationPokemons(1, 4, JSON.parse(localStorage.favorite))})
+
+}
 
 const getPokemonData = async (start, end) =>{
     let allPokemons = []
@@ -586,7 +797,12 @@ const getPokemonData = async (start, end) =>{
     }
 }
 
+
+// Get all pokemons data
+
+
 fillPokemon(Math.round(Math.random()*151))
+
 
 
 

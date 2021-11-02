@@ -6,9 +6,9 @@ body{
     --color1: linear-gradient(-45deg, rgb(217, 212, 182) 40%, rgb(242, 237, 204) 60%);
     --color2: #0388A6;
     --color3: #F58766;
-    --color4: #BDE3F5;
+    --color4: #F4E584;
     --color5: #013440;
-    --color6: #F2EDCC;
+    --color6: #f2edcc;
     margin: 0;
     padding: 0;
     font-size: 25px;
@@ -205,6 +205,56 @@ span{
     user-select: none;
     animation: nameJP 1.2s ease-in-out;
     color: var(--color2);
+}
+
+.favorite_wrapper{
+    position: absolute;
+    left: 1%;
+    top: 18%;
+    z-index: 1000;
+    width: 3vw;
+    height: 4vh;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+}
+.favorite_buttons{
+}
+.favorite_text{
+    position: relative;
+    font-size: 2.5vh;
+    margin-right: 10%;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: var(--color6);
+    animation: favorite ease-in-out 2s infinite;
+}
+.favorite_text:hover{
+    color: var(--color6);
+    opacity: 0.8;
+
+}
+.like, .dislike{
+    height: 4vh;
+    width: auto;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-top: 5px;
+    animation: image ease-in-out 0.3s;
+    transition: ease-in-out 0.3s;
+}
+.like:hover{
+    transform: scale(1.5);
+    transition: ease-in-out 0.3s;
+ }
+.dislike:hover{
+    transform: scale(1.5);
+    transition: ease-in-out 0.3s;
+}
+.dislike{
+    filter: hue-rotate(180deg);
 }
 
 .stat{
@@ -476,14 +526,12 @@ span{
 
 @keyframes stat {
     0%{
-        width: 250px;
-    }
-    30%{
         width: 0;
     }
-    70%{
-        width: 100px;
+    50%{
+        width: 0;
     }
+
 }
 
 @keyframes image {
@@ -562,6 +610,18 @@ span{
     }
 }
 
+@keyframes favorite {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
 /*                                                    Media                                                           */
 
 @media screen and (max-height: 900px) {
@@ -578,6 +638,13 @@ span{
         width: 50px;
         font-size: 4em;
         right: 45%;
+    }
+    .favorite_wrapper{
+        position: absolute;
+        left: 1%;
+        top: 18%;
+        width: 3vw;
+        height: 4vh;
     }
     .stat{
         width: 600px;
@@ -680,6 +747,9 @@ span{
         width: 50px;
         font-size: 3.5em;
         right: 45%;
+    }
+    .favorite_wrapper{
+        left: 2%;
     }
     .stat{
         width: 400px;
@@ -874,6 +944,10 @@ span{
         z-index: 900;
     }
 
+    .favorite_wrapper{
+        display: none;
+    }
+
     .stat{
         width: 100%;
         height: fit-content;
@@ -975,7 +1049,6 @@ span{
         margin-right: 30px;
     }
 }
-
 
 
 

@@ -675,7 +675,7 @@ const generationPokemonTemplate = (pokemon, colorTheme) => {
 
 // Fill generation Pokemon page
 
-let fillGenerationPokemons = async (start, end) => {
+let fillGenerationPokemons = async (start, end, arr) => {
 
     // Preloader
 
@@ -685,15 +685,32 @@ let fillGenerationPokemons = async (start, end) => {
 
     allGenerationsPokemons = []
 
-    let getPokemonsData = async () => {
-        for (let i = start; i <= end; i++) {
-            let payload = await getPokemon(i)
-            allGenerationsPokemons = [...allGenerationsPokemons, {
-                id: payload.pokemon.id,
-                name: payload.pokemon.name,
-                type: payload.pokemon.types,
-                sprite: payload.pokemon.sprites.front_default
-            }]
+    let getPokemonsData = async (arr) => {
+        if (Array.isArray(arr)){
+            let favorite = arr
+            favorite.sort((a, b) => {
+                return a - b
+            } )
+            await Promise.all(favorite.map(async el => {
+                let payload = await getPokemon(el)
+                allGenerationsPokemons = [...allGenerationsPokemons, {
+                    id: payload.pokemon.id,
+                    name: payload.pokemon.name,
+                    type: payload.pokemon.types,
+                    sprite: payload.pokemon.sprites.front_default
+                }]
+            }))
+        }
+        else {
+            for (let i = start; i <= end; i++) {
+                let payload = await getPokemon(i)
+                allGenerationsPokemons = [...allGenerationsPokemons, {
+                    id: payload.pokemon.id,
+                    name: payload.pokemon.name,
+                    type: payload.pokemon.types,
+                    sprite: payload.pokemon.sprites.front_default
+                }]
+            }
         }
         return allGenerationsPokemons
     }
@@ -721,8 +738,8 @@ let fillGenerationPokemons = async (start, end) => {
             break
     }
 
-    !localStorage.pokemons || localStorage.pokemons.length < 898
-        ? description.innerHTML = generationPokemonTemplate(await getPokemonsData(),colorTheme)
+    (!localStorage.pokemons || localStorage.pokemons.length < 898) || (Array.isArray(arr))
+        ? description.innerHTML = generationPokemonTemplate(await getPokemonsData(arr),colorTheme)
         : description.innerHTML = generationPokemonTemplate(JSON.parse(localStorage.pokemons).slice(start - 1, end),colorTheme)
 
     // Selectors

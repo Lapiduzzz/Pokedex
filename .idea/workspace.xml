@@ -26,9 +26,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fccae5d-2078-4e51-a938-9ff431697fdf" name="Default Changelist" comment="update 7; &#10;Update evolution chain&#10;Add localStorage">
+      <change afterPath="$PROJECT_DIR$/img/dislike.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/like.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/types.css" beforeDir="false" afterPath="$PROJECT_DIR$/types/types.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/types/types.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +157,12 @@
       <workItem from="1635285228088" duration="1551000" />
       <workItem from="1635294861903" duration="2071000" />
       <workItem from="1635336160988" duration="12154000" />
-      <workItem from="1635417921176" duration="9619000" />
+      <workItem from="1635417921176" duration="12442000" />
+      <workItem from="1635446489253" duration="13667000" />
+      <workItem from="1635503593628" duration="18219000" />
+      <workItem from="1635534507868" duration="6810000" />
+      <workItem from="1635675200019" duration="1044000" />
+      <workItem from="1635850519931" duration="4212000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1632663410197</created>
@@ -225,7 +234,28 @@
       <option name="project" value="LOCAL" />
       <updated>1635426877227</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update 7; &#10;Update evolution chain&#10;Add localStorage">
+      <created>1635428089901</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1635428089901</updated>
+    </task>
+    <task id="LOCAL-00012" summary="update 7; &#10;Update evolution chain&#10;Add localStorage">
+      <created>1635428229242</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1635428229242</updated>
+    </task>
+    <task id="LOCAL-00013" summary="update 7; &#10;Update evolution chain&#10;Add localStorage">
+      <created>1635428632265</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1635428632265</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,10 +307,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="687" y="215" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1633268890539" />
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1635426996128">
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1635428638318">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1635426996128" />
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1635428638318" />
     <state x="475" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1633210520311">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
