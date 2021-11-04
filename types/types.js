@@ -691,7 +691,7 @@ let fillGenerationPokemons = async (start, end, arr) => {
             favorite.sort((a, b) => {
                 return a - b
             } )
-            await Promise.all(favorite.map(async el => {
+            for (let el of favorite){
                 let payload = await getPokemon(el)
                 allGenerationsPokemons = [...allGenerationsPokemons, {
                     id: payload.pokemon.id,
@@ -699,7 +699,8 @@ let fillGenerationPokemons = async (start, end, arr) => {
                     type: payload.pokemon.types,
                     sprite: payload.pokemon.sprites.front_default
                 }]
-            }))
+            }
+
         }
         else {
             for (let i = start; i <= end; i++) {
