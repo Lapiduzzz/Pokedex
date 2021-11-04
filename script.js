@@ -20,15 +20,29 @@ input.addEventListener('blur', () => { search.style.display = 'none'})
 input.addEventListener('change', (e) => {fillPokemon(e.target.value)})
 search.addEventListener('click', (e) => {fillPokemon(e.target.value)})
 random.addEventListener('click', () => fillPokemon(Math.round(Math.random()*898)))
+
 window.alert = (err) =>{
     description.innerHTML =` <div class="errors_wrapper">
                                 <div class="errors">
                                     <img class="errors_pokemon" src="img/pika.png" alt="">
                                     <img class="errors_whos" src="img/whos.png" alt="">
                                     <img class="errors_pokemon mew" src="img/mew.png" alt="">
-                                    <div class="error_text"><p>${err}</p></div>
+                                    <div class="error_text">
+                                        <p>${err}</p>
+                                    </div>
+                                    <button class="errors_button" onclick="fillPokemon(payload.pokemon.id)">OK</button>
                                 </div>
                             </div>`
+}
+let modal = (msg) =>{
+        description.insertAdjacentHTML('afterbegin', `<div class="modal_wrapper"> 
+                                                                    <p class="modal">${msg}</p> 
+                                                                </div>
+                                        `)
+    setTimeout(()=>{
+        let modal = document.querySelector('.modal_wrapper')
+        modal.remove()
+    }, 2000)
 }
 
 // Get pokemon description
@@ -450,7 +464,7 @@ const isFavorite = (id) =>{
 const evolutions = () => (payload.evoPokemon.map(el => `<div class="evo_description">
                                                         <img class="sprite evo_sprite" 
                                                         onclick="payload.pokemon.id === ${el.id} 
-                                                                ? alert('Selected') 
+                                                                ? modal('Selected') 
                                                                 : fillPokemon(${el.id})" 
                                                         src="${el.sprite}">
                                                         <p class="evo_name">${el.name}</p>
@@ -707,7 +721,6 @@ const fillPokemon = async (name) => {
     const favoriteButtonsWrapper = document.querySelector('.favorite_wrapper')
     const favoriteText = document.querySelector('.favorite_text')
 
-
     // Weaknesses
 
     let [attack, defense] = weaknessesMap()
@@ -767,13 +780,31 @@ const fillPokemon = async (name) => {
     })
     lineBottom.addEventListener('mouseleave', () => {
         if (evoDisplay) {
-            lineBottom.innerHTML = `<div class="sprites">
-                                        <div class="sprite_wrapper">${sprites(payload.pokemon.sprites.front_default)}</div>
-                                        <div class="sprite_wrapper">${sprites(payload.pokemon.sprites.back_default)}</div>
-                                        <div class="sprite_wrapper">${sprites(payload.pokemon.sprites.front_shiny)}</div>
-                                        <div class="sprite_wrapper">${sprites(payload.pokemon.sprites.back_shiny)}</div>
-                                        <div class="types">${type()}</div> 
-                                    </div>`
+            lineBottom.innerHTML = window.innerWidth > 425
+                                                            ? `<div class="sprites">
+                                                                    <div class="sprite_wrapper">                        
+                                                                        ${sprites(payload.pokemon.sprites.front_default)}
+                                                                    </div >
+                                                                    <div class="sprite_wrapper">                        
+                                                                        ${sprites(payload.pokemon.sprites.back_default)}
+                                                                    </div>
+                                                                    <div class="sprite_wrapper">                        
+                                                                        ${sprites(payload.pokemon.sprites.front_shiny)}
+                                                                    </div>
+                                                                    <div class="sprite_wrapper">                       
+                                                                        ${sprites(payload.pokemon.sprites.back_shiny)}
+                                                                    </div>
+                                                                    <div class="types">${type()}</div> 
+                                                                </div>`
+                                                            : `<div class="sprites">
+                                                                    <div class="sprite_wrapper">                        
+                                                                        ${sprites(payload.pokemon.sprites.front_default)}
+                                                                    </div >
+                                                                   <div class="sprite_wrapper">                        
+                                                                   ${sprites(payload.pokemon.sprites.back_default)}
+                                                                    </div>
+                                                                     <div class="types">${type()}</div> 
+                                                               </div>`
             evoDisplay = false
         }
     })

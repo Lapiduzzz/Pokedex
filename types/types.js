@@ -547,7 +547,6 @@ const fillTypes = async (type) => {
 
 // Generation Pokemon page
 
-
 let allGenerationsPokemons = []
 
 // Generation pokemon page template
