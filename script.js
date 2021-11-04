@@ -20,79 +20,94 @@ input.addEventListener('blur', () => { search.style.display = 'none'})
 input.addEventListener('change', (e) => {fillPokemon(e.target.value)})
 search.addEventListener('click', (e) => {fillPokemon(e.target.value)})
 random.addEventListener('click', () => fillPokemon(Math.round(Math.random()*898)))
+window.alert = (err) =>{
+    description.innerHTML =` <div class="errors_wrapper">
+                                <div class="errors">
+                                    <img class="errors_pokemon" src="img/pika.png" alt="">
+                                    <img class="errors_whos" src="img/whos.png" alt="">
+                                    <img class="errors_pokemon mew" src="img/mew.png" alt="">
+                                    <div class="error_text"><p>${err}</p></div>
+                                </div>
+                            </div>`
+}
 
 // Get pokemon description
 
 const getPokemon = async (name) => {
+    try {
+        let pokemon
+        let pokemonSpecies
+        let weaknesses
 
-    let pokemon = {}
-    let pokemonSpecies = {}
-    let weaknesses = {}
+        let responses = await Promise.all([
+            fetch(`https://pokeapi.co/api/v2/pokemon/${name}`),
+            fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`),
+        ])
+        pokemon = await responses[0].json()
+        pokemonSpecies = await responses[1].json()
+        weaknesses = await getMultipliers(pokemon.types)
 
-    let responses = await Promise.all([
-        fetch(`https://pokeapi.co/api/v2/pokemon/${name}`),
-        fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`),
-    ])
-    pokemon = await responses[0].json()
-    pokemonSpecies = await responses[1].json()
-    weaknesses = await getMultipliers(pokemon.types)
-
-    return payload = {
-        pokemon: pokemon,
-        pokemonSpecies: pokemonSpecies,
-        weaknesses: weaknesses
+        return payload = {
+            pokemon: pokemon,
+            pokemonSpecies: pokemonSpecies,
+            weaknesses: weaknesses
+        }
     }
-
+    catch (err) {
+        alert('Pokemon Not Found')
+    }
 }
 
 // Get evolution
 
 const getEvolution = async (url) => {
+    try {
+        let evoPokemon = []
+        let evoPokemonName = []
 
-    let evoPokemon = []
-    let evoPokemonName = []
+        let response = await fetch(url)
+        let data = await response.json()
 
+        let evolutionName1 = data.chain.species.name
+        let evolutionName2 = data.chain.evolves_to.map(el => (el.species.name)).join(',')
+        let evolutionName3 = data.chain.evolves_to.map(el => (el.evolves_to.map(el => el.species.name))).join(',')
 
-    let response = await fetch(url)
-    let data = await response.json()
+        evolutionName1 && evoPokemonName.push(evolutionName1.split(','))
+        evolutionName2 && evoPokemonName.push(evolutionName2.split(','))
+        evolutionName3 && evoPokemonName.push(evolutionName3.split(','))
 
-    let evolutionName1 = data.chain.species.name
-    let evolutionName2 = data.chain.evolves_to.map(el => (el.species.name)).join(',')
-    let evolutionName3 = data.chain.evolves_to.map(el => (el.evolves_to.map(el => el.species.name))).join(',')
+        let fetchingEvoPokemon = async (name) => {
+            if (name !== '') {
+                let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+                let data = await response.json()
 
-    evolutionName1 && evoPokemonName.push(evolutionName1.split(','))
-    evolutionName2 && evoPokemonName.push(evolutionName2.split(','))
-    evolutionName3 && evoPokemonName.push(evolutionName3.split(','))
-
-    let fetchingEvoPokemon = async (name) => {
-        if (name !== '') {
-            let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-            let data = await response.json()
-
-            evoPokemon.push({
-                id: data.id,
-                name: data.name,
-                sprite: data.sprites.front_default
-            })
-        }
-    }
-
-    for (let el of evoPokemonName){
-
-        if (el == 'mimikyu'){
-            await fetchingEvoPokemon('mimikyu-disguised')
-            break
-        }
-
-        if(el.length > 1){
-            for (let innerEl of el){
-                await fetchingEvoPokemon(innerEl)
+                evoPokemon.push({
+                    id: data.id,
+                    name: data.name,
+                    sprite: data.sprites.front_default
+                })
             }
         }
-        else await fetchingEvoPokemon(el)
-    }
 
-    return payload = {...payload, evoPokemon: evoPokemon}
+        for (let el of evoPokemonName) {
+
+            if (el == 'mimikyu') {
+                await fetchingEvoPokemon('mimikyu-disguised')
+                break
+            }
+
+            if (el.length > 1) {
+                for (let innerEl of el) {
+                    await fetchingEvoPokemon(innerEl)
+                }
+            } else await fetchingEvoPokemon(el)
+        }
+
+        return payload = {...payload, evoPokemon: evoPokemon}
+    }
+    catch (err){
+        console.log(err)
+    }
 }
 
 // Weaknesses multiplier
@@ -424,8 +439,8 @@ const isFavorite = (id) =>{
     if(localStorage.favorite) {
         let favorites = JSON.parse(localStorage.favorite)
         return favorites.includes(payload.pokemon.id) || favorites.includes(payload.pokemon.name)
-                                            ? `<img class="dislike" src="img/dislike.png" alt="" onclick="removeFavorite(${id})">`
-                                            : `<img class="like" src="img/like.png" alt="" onclick="pushFavorite(${id})">`
+                                            ? `<img class="dislike" src=${payload.pokemon.sprites.front_default} alt="" onclick="removeFavorite(${id})">`
+                                            : `<img class="like" src=${payload.pokemon.sprites.front_default} alt="" onclick="pushFavorite(${id})">`
     }
     else return `<img class="like" src="img/like.png" alt="" onclick="pushFavorite(${id})">`
 }
@@ -535,7 +550,8 @@ const preloader = () => {
 
 // Fill pokemon page
 
-const fillPokemond = (name) => {
+/*
+const fillPokemon = (name) => {
 
     // Loading
 
@@ -663,6 +679,7 @@ const fillPokemond = (name) => {
             })
         })
 }
+*/
 
 const fillPokemon = async (name) => {
 
@@ -681,7 +698,6 @@ const fillPokemon = async (name) => {
     // Fill HTML template
 
     description.innerHTML = await pokemonTemplate()
-
 
     // Selectors
 
@@ -761,25 +777,39 @@ const fillPokemon = async (name) => {
             evoDisplay = false
         }
     })
-    favoriteButtonsWrapper.addEventListener('mouseover', ()=>{
-        if(!favoriteDisplay) {
+    favoriteButtonsWrapper.addEventListener('mouseover', () => {
+        const like = document.querySelector('.like')
+        const dislike = document.querySelector('.dislike')
+        if (!favoriteDisplay) {
             favoriteButtonsWrapper.style = 'width: 10vw; background-color: var(--color3)'
             favoriteText.innerHTML = 'favorite'
+            like
+                ? like.style = 'transform: scale(1.5);'
+                : dislike.style = 'transform: scale(1.5);'
             isFavorite(payload.pokemon.id)
             favoriteDisplay = true
         }
     })
-    favoriteButtonsWrapper.addEventListener('mouseleave', ()=>{
-        if(favoriteDisplay) {
+    favoriteButtonsWrapper.addEventListener('mouseleave', () => {
+        const like = document.querySelector('.like')
+        const dislike = document.querySelector('.dislike')
+        if (favoriteDisplay) {
             favoriteButtonsWrapper.style = 'width: 2vw'
             favoriteText.innerHTML = ''
+            like
+                ? like.style = 'transform: scale(-1, 1);'
+                : dislike.style = 'transform: scale(-1, 1);'
             isFavorite(payload.pokemon.id)
             favoriteDisplay = false
         }
     })
-    favoriteText.addEventListener('click', ()=>{fillGenerationPokemons(1, 4, JSON.parse(localStorage.favorite))})
+    favoriteText.addEventListener('click', () => {
+        fillGenerationPokemons(1, 4, JSON.parse(localStorage.favorite))
+    })
 
 }
+
+// Get all pokemons data
 
 const getPokemonData = async (start, end) =>{
     let allPokemons = []
@@ -797,8 +827,6 @@ const getPokemonData = async (start, end) =>{
     }
 }
 
-
-// Get all pokemons data
 
 
 fillPokemon(Math.round(Math.random()*151))
