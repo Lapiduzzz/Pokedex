@@ -456,7 +456,7 @@ const isFavorite = (id) =>{
                                             ? `<img class="dislike" src=${payload.pokemon.sprites.front_default} alt="" onclick="removeFavorite(${id})">`
                                             : `<img class="like" src=${payload.pokemon.sprites.front_default} alt="" onclick="pushFavorite(${id})">`
     }
-    else return `<img class="like" src="img/like.png" alt="" onclick="pushFavorite(${id})">`
+    else return `<img class="like" src=${payload.pokemon.sprites.front_default} alt="" onclick="pushFavorite(${id})">`
 }
 
 // Evolution
@@ -694,7 +694,6 @@ const fillPokemon = (name) => {
         })
 }
 */
-
 const fillPokemon = async (name) => {
 
     // Loading
