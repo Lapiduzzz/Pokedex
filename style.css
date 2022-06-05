@@ -657,6 +657,15 @@ span{
 
 }
 
+
+.load_pokemon{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    font-size: 15px;
+    z-index: 1000;
+}
+
 /*                                                    Animation                                                       */
 
 @keyframes stat {

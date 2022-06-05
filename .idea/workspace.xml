@@ -25,9 +25,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fccae5d-2078-4e51-a938-9ff431697fdf" name="Default Changelist" comment="update 10; &#10;final version 0.0.1">
+    <list default="true" id="3fccae5d-2078-4e51-a938-9ff431697fdf" name="Default Changelist" comment="update 11; &#10;refactor payload, add isLoad&#10;final version 0.0.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +174,9 @@
       <workItem from="1647180425146" duration="1008000" />
       <workItem from="1654096557414" duration="574000" />
       <workItem from="1654154597126" duration="9447000" />
-      <workItem from="1654259655767" duration="3711000" />
+      <workItem from="1654259655767" duration="7370000" />
+      <workItem from="1654295883904" duration="588000" />
+      <workItem from="1654387261953" duration="6256000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1632663410197</created>
@@ -301,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636039742206</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="update 10; &#10;final version 0.0.1">
+      <created>1654267243154</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1654267243154</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,16 +355,17 @@
     <MESSAGE value="update 8; &#10;Add favorite" />
     <MESSAGE value="update 9; &#10;Add errors page&#10;Update favorite" />
     <MESSAGE value="update 10; &#10;final version 0.0.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 10; &#10;final version 0.0.1" />
+    <MESSAGE value="update 11; &#10;refactor payload, add isLoad&#10;final version 0.0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 11; &#10;refactor payload, add isLoad&#10;final version 0.0.1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1654173259024">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1654173259024" />
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1654169729585">
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1654267247858">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1654169729585" />
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1654267247858" />
   </component>
 </project>
